@@ -1,14 +1,15 @@
 import './App.css'
 import React, { useState } from 'react'
-import ReactMapGL from 'react-map-gl'
+import MapGL from 'react-map-gl'
+import Pin from './components/Pin'
 require('dotenv').config()
 
 const ACCESS_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN
 
 function App() {
   const [viewport, setViewport] = useState({
-    width: 400,
-    height: 400,
+    width: 700,
+    height: 700,
     latitude: 39.73989,
     longitude: -104.98458,
     zoom: 2
@@ -17,11 +18,13 @@ function App() {
 
   return (
     <div className="App">
-      <ReactMapGL
-        mapboxApiAccessToken={mapboxApiAccessToken}
+      <MapGL
         {...viewport}
         onViewportChange={(nextViewport) => setViewport(nextViewport)}
-      />
+        mapboxApiAccessToken={mapboxApiAccessToken}
+      >
+        <Pin longitude={-104.98458} latitude={39.73989} />
+      </MapGL>
     </div>
   )
 }
