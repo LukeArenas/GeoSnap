@@ -52,3 +52,4 @@ React and Node suit my front-end needs through their component hierarchy. The re
 ### ***Credits***
 * [Mapbox](https://visgl.github.io/react-map-gl/)
 * [geocodio](https://dash.geocod.io/)
+* [npm](https://www.npmjs.com/package/uuidv4)
