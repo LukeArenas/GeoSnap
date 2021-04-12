@@ -1,0 +1,14 @@
+{
+  "development": {
+    "database": "geosnap_development",
+    "dialect": "postgres"
+  },
+  "test": {
+    "database": "geosnap_test",
+    "dialect": "postgres"
+  },
+  "production": {
+    "database": "geosnap_production",
+    "dialect": "postgres"
+  }
+}

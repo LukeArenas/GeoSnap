@@ -30,11 +30,11 @@ GeoSnap is a geo-tagging photo sharing app. It allows users to upload their phot
 
 ### ***Back-end Decisions***
 
-I decided to use Postgres and Express for the back-end because I find they have a good balance between structure and flexibility.
+I decided to use Postgres and Express for the back-end because I find they have a good balance between structure and flexibility. Geocodio will be used in the back-end to store coordinates in the db.
 
 ### ***Front-end Decisions***
 
-React and Node suit my front-end needs through their component hierarchy. The redux functionality paired with React will help keep my project organized and scalable.
+React and Node suit my front-end needs through their component hierarchy. The redux functionality paired with React will help keep my project organized and scalable. The Mapbox API will be the front-end of my geolocation functionality.
 
 ### ***Screenshots***
 
@@ -50,3 +50,5 @@ React and Node suit my front-end needs through their component hierarchy. The re
 ***
 
 ### ***Credits***
+* [Mapbox](https://visgl.github.io/react-map-gl/)
+* [geocodio](https://dash.geocod.io/)
