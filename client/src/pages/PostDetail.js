@@ -22,8 +22,12 @@ const PostDetail = (props) => {
   return (
     <div>
       <div>
-        <img src={User.profilePicture} alt={User.username} />
-        <h4>@{User.username}</h4>
+        {User ? (
+          <div>
+            <img src={User.profilePicture} alt={User.username} />
+            <h4>@{User.username}</h4>{' '}
+          </div>
+        ) : null}
       </div>
       <img src={image} alt={caption} />
       <h4>{caption}</h4>

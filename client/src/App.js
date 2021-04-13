@@ -1,13 +1,10 @@
 import './styles/App.css'
-import React, { useState } from 'react'
+import React from 'react'
 import { Route, useHistory, Switch } from 'react-router-dom'
 import Map from './pages/Map'
-import MapGL from 'react-map-gl'
-import Pin from './components/Pin'
 import PostDetail from './pages/PostDetail'
+import PostForm from './pages/PostForm'
 require('dotenv').config()
-
-// const ACCESS_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN
 
 function App() {
   return (
@@ -19,6 +16,7 @@ function App() {
         <Switch>
           <Route path="/map" component={() => <Map />} />
           <Route path="/detail" component={() => <PostDetail />} />
+          <Route path="/post" component={() => <PostForm />} />
         </Switch>
       </main>
     </div>

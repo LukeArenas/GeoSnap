@@ -1,4 +1,4 @@
-const { SET_POSTS, SET_SELECTED_POST } = require('../types')
+const { SET_POSTS, SET_SELECTED_POST, ADD_NEW_POST } = require('../types')
 
 const initialState = {
   posts: [],
@@ -11,6 +11,8 @@ const PostReducer = (state = initialState, action) => {
       return { ...state, posts: action.payload }
     case SET_SELECTED_POST:
       return { ...state, selectedPost: action.payload }
+    case ADD_NEW_POST:
+      return { ...state, posts: [...state.posts, action.payload] }
     default:
       return { ...state }
   }

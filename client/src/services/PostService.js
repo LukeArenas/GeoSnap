@@ -17,3 +17,12 @@ export const GetPostById = async (id) => {
     throw error
   }
 }
+
+export const CreatePost = async (body) => {
+  try {
+    const res = await Client.post(`/posts`, body)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
