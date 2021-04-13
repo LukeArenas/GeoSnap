@@ -1,10 +1,28 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { connect } from 'react-redux'
 import MapGL from 'react-map-gl'
 import Pin from '../components/Pin'
+import { getAllPosts } from '../store/actions/PostAction'
+
+const mapStateToProps = ({ postState }) => {
+  return { postState }
+}
+
+const mapActionsToProps = (dispatch) => {
+  return {
+    getAllPosts: () => dispatch(getAllPosts())
+  }
+}
 
 const Map = (props) => {
   const { viewport, setViewport, mapboxApiAccessToken } = props
+
   console.log(props)
+
+  useEffect(() => {
+    props.getAllPosts()
+  }, [])
+
   return (
     <div>
       {/* <MapGL
@@ -18,4 +36,4 @@ const Map = (props) => {
   )
 }
 
-export default Map
+export default connect(mapStateToProps, mapActionsToProps)(Map)
