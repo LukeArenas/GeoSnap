@@ -24,7 +24,6 @@ const Map = (props) => {
     longitude: -104.98458,
     zoom: 2
   })
-  const [mapboxApiAccessToken, setToken] = useState(ACCESS_TOKEN)
 
   useEffect(() => {
     props.getAllPosts()
@@ -35,7 +34,7 @@ const Map = (props) => {
       <MapGL
         {...viewport}
         onViewportChange={(nextViewport) => setViewport(nextViewport)}
-        mapboxApiAccessToken={mapboxApiAccessToken}
+        mapboxApiAccessToken={ACCESS_TOKEN}
       >
         <Pin longitude={-104.98458} latitude={39.73989} />
       </MapGL>

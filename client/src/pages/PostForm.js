@@ -7,7 +7,6 @@ const Geocodio = require('geocodio-library-node')
 //SET UP GEOCODER
 
 const API_KEY = process.env.REACT_APP_GEOCODIO_KEY
-console.log(typeof API_KEY)
 const geocoder = new Geocodio(API_KEY.toString())
 
 //MAP STATE AND ACTIONS TO PROPS
@@ -27,12 +26,19 @@ const mapActionsToProps = (dispatch) => {
 const PostForm = (props) => {
   const [newPost, setNewPost] = useState({
     image: '',
-    caption: ''
+    caption: '',
+    latitude: null,
+    longitude: null,
+    userId: '44ca8d8d-4466-4802-86e4-97706b77f35d'
   })
   const [address, setAddress] = useState('')
 
   const handleChange = (e) => {
     setNewPost({ ...newPost, [e.target.name]: e.target.value })
+  }
+
+  const handleSubmit = (e) => {
+    props.createPost(newPost)
   }
 
   const handleAddress = (e) => {
@@ -43,7 +49,12 @@ const PostForm = (props) => {
     e.preventDefault()
     try {
       const res = await geocoder.geocode(address)
-      console.log(res)
+      console.log(res.results[0].location)
+      setNewPost({
+        ...newPost,
+        latitude: res.results[0].location.lat,
+        longitude: res.results[0].location.lng
+      })
     } catch (error) {
       throw error
     }
@@ -51,7 +62,7 @@ const PostForm = (props) => {
 
   return (
     <div>
-      <form>
+      <form onSubmit={(e) => handleSubmit(e)}>
         <input
           type="text"
           placeholder="image url"
