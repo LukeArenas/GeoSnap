@@ -25,6 +25,9 @@ const Map = (props) => {
     zoom: 2
   })
 
+  //DESTRUCTURE PROPS
+  const { posts } = props.postState
+
   useEffect(() => {
     props.getAllPosts()
   }, [])
@@ -36,7 +39,13 @@ const Map = (props) => {
         onViewportChange={(nextViewport) => setViewport(nextViewport)}
         mapboxApiAccessToken={ACCESS_TOKEN}
       >
-        <Pin longitude={-104.98458} latitude={39.73989} />
+        {posts.length
+          ? posts.map((post, idx) => (
+              <div key={idx}>
+                <Pin longitude={post.longitude} latitude={post.latitude} />
+              </div>
+            ))
+          : null}
       </MapGL>
     </div>
   )

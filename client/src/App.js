@@ -6,7 +6,7 @@ import PostDetail from './pages/PostDetail'
 import PostForm from './pages/PostForm'
 require('dotenv').config()
 
-function App() {
+const App = (props) => {
   return (
     <div className="App">
       <header>
