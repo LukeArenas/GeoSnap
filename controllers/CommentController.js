@@ -1,8 +1,20 @@
-const { Comment } = require('../models')
+const { Comment, User } = require('../models')
 
 const getAllComments = async (req, res) => {
   try {
     const comments = await Comment.findAll()
+    res.send(comments)
+  } catch (error) {
+    throw error
+  }
+}
+
+const getCommentsByPost = async (req, res) => {
+  try {
+    const comments = await Comment.findAll({
+      where: { id: req.params.post_id },
+      include: [{ model: User, attributes: ['username', 'profilePicture'] }]
+    })
     res.send(comments)
   } catch (error) {
     throw error
@@ -18,4 +30,18 @@ const createComment = async (req, res) => {
   }
 }
 
-module.exports = { getAllComments, createComment }
+const deleteComment = async (req, res) => {
+  try {
+    await Comment.destroy(req.params.id)
+    res.send(`Comment with id ${req.params.id} deleted.`)
+  } catch (error) {
+    throw error
+  }
+}
+
+module.exports = {
+  getAllComments,
+  getCommentsByPost,
+  createComment,
+  deleteComment
+}

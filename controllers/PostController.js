@@ -1,9 +1,25 @@
-const { Post } = require('../models')
+const { Post, Comment, User } = require('../models')
 
 const getAllPosts = async (req, res) => {
   try {
     const posts = await Post.findAll()
     res.send(posts)
+  } catch (error) {
+    throw error
+  }
+}
+
+const getPostById = async (req, res) => {
+  try {
+    const post = await Post.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['username', 'profilePicture']
+        }
+      ]
+    })
+    res.send(post)
   } catch (error) {
     throw error
   }
@@ -39,4 +55,10 @@ const deletePost = async (req, res) => {
   }
 }
 
-module.exports = { getAllPosts, createPost, updatePost, deletePost }
+module.exports = {
+  getAllPosts,
+  getPostById,
+  createPost,
+  updatePost,
+  deletePost
+}
