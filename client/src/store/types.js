@@ -1,5 +1,11 @@
+//POSTS
+
 export const SET_POSTS = 'SET_POSTS'
 export const SET_SELECTED_POST = 'SET_SELECTED_POST'
 export const ADD_NEW_POST = 'ADD_NEW_POST'
+
+//COMMENTS
+
 export const SET_COMMENTS = 'SET_COMMENTS'
 export const ADD_NEW_COMMENT = 'ADD_NEW_COMMENT'
+export const DELETE_COMMENT = 'DELETE_COMMENT'

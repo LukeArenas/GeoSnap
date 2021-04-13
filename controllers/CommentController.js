@@ -32,7 +32,7 @@ const createComment = async (req, res) => {
 
 const deleteComment = async (req, res) => {
   try {
-    await Comment.destroy(req.params.id)
+    await Comment.destroy({ where: { id: req.params.id } })
     res.send(`Comment with id ${req.params.id} deleted.`)
   } catch (error) {
     throw error

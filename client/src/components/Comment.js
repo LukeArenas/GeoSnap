@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import { getCommentsByPost } from '../store/actions/CommentAction'
+import {
+  deleteComment,
+  getCommentsByPost
+} from '../store/actions/CommentAction'
 import CommentForm from './CommentForm'
 
 //MAP STATE AND ACTIONS TO PROPS
@@ -11,7 +14,8 @@ const mapStateToProps = ({ commentState }) => {
 
 const mapActionsToProps = (dispatch) => {
   return {
-    getCommentsByPost: (postId) => dispatch(getCommentsByPost(postId))
+    getCommentsByPost: (postId) => dispatch(getCommentsByPost(postId)),
+    deleteComment: (id) => dispatch(deleteComment(id))
   }
 }
 
@@ -21,6 +25,12 @@ const Comment = (props) => {
   //DECONSTRUCTING PROPS
 
   const { comments } = props.commentState
+
+  //METHOD
+
+  const removeComment = (id) => {
+    props.deleteComment(id)
+  }
 
   //USE EFFECT
 
@@ -37,6 +47,7 @@ const Comment = (props) => {
               <img src={comment.User.profilePicture} alt="profile pic" />
               <h4>@{comment.User.username}</h4>
               <p>{comment.content}</p>
+              <button onClick={() => removeComment(comment.id)}>Delete</button>
             </div>
           ))
         : null}

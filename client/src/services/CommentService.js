@@ -17,3 +17,12 @@ export const CreateComment = async (body) => {
     throw error
   }
 }
+
+export const DeleteComment = async (id) => {
+  try {
+    const res = await Client.delete(`/comments/${id}`)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
