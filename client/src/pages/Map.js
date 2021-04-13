@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import MapGL from 'react-map-gl'
 import Pin from '../components/Pin'
@@ -14,10 +14,17 @@ const mapActionsToProps = (dispatch) => {
   }
 }
 
-const Map = (props) => {
-  const { viewport, setViewport, mapboxApiAccessToken } = props
+const ACCESS_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN
 
-  console.log(props)
+const Map = (props) => {
+  const [viewport, setViewport] = useState({
+    width: 700,
+    height: 700,
+    latitude: 39.73989,
+    longitude: -104.98458,
+    zoom: 2
+  })
+  const [mapboxApiAccessToken, setToken] = useState(ACCESS_TOKEN)
 
   useEffect(() => {
     props.getAllPosts()
@@ -25,13 +32,13 @@ const Map = (props) => {
 
   return (
     <div>
-      {/* <MapGL
+      <MapGL
         {...viewport}
         onViewportChange={(nextViewport) => setViewport(nextViewport)}
         mapboxApiAccessToken={mapboxApiAccessToken}
       >
         <Pin longitude={-104.98458} latitude={39.73989} />
-      </MapGL> */}
+      </MapGL>
     </div>
   )
 }
