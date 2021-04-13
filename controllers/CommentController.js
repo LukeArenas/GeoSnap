@@ -12,7 +12,7 @@ const getAllComments = async (req, res) => {
 const getCommentsByPost = async (req, res) => {
   try {
     const comments = await Comment.findAll({
-      where: { id: req.params.postId },
+      where: { postId: req.params.postId },
       include: [{ model: User, attributes: ['username', 'profilePicture'] }]
     })
     res.send(comments)

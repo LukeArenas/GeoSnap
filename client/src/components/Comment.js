@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { getCommentsByPost } from '../store/actions/CommentAction'
+import CommentForm from './CommentForm'
 
 //MAP STATE AND ACTIONS TO PROPS
 
@@ -14,7 +15,11 @@ const mapActionsToProps = (dispatch) => {
   }
 }
 
+//COMPONENT
+
 const Comment = (props) => {
+  //DECONSTRUCTING PROPS
+
   const { comments } = props.commentState
 
   //USE EFFECT
@@ -25,6 +30,7 @@ const Comment = (props) => {
 
   return (
     <div>
+      <CommentForm />
       {comments.length
         ? comments.map((comment, idx) => (
             <div key={idx}>
