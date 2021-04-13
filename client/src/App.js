@@ -1,7 +1,8 @@
-import './App.css'
+import './styles/App.css'
 import React, { useState } from 'react'
-import MapGL from 'react-map-gl'
-import Pin from './components/Pin'
+import { Route, useHistory, Switch } from 'react-router-dom'
+import Map from './pages/Map'
+import PostDetail from './pages/PostDetail'
 require('dotenv').config()
 
 const ACCESS_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN
@@ -18,13 +19,24 @@ function App() {
 
   return (
     <div className="App">
-      <MapGL
-        {...viewport}
-        onViewportChange={(nextViewport) => setViewport(nextViewport)}
-        mapboxApiAccessToken={mapboxApiAccessToken}
-      >
-        <Pin longitude={-104.98458} latitude={39.73989} />
-      </MapGL>
+      <header>
+        <div></div>
+      </header>
+      <main>
+        <Switch>
+          <Route
+            path="/map"
+            component={() => (
+              <Map
+                viewport={viewport}
+                mapboxApiAccessToken={mapboxApiAccessToken}
+                setViewport={setViewport}
+              />
+            )}
+          />
+          <Route path="/detail" component={() => <PostDetail />} />
+        </Switch>
+      </main>
     </div>
   )
 }
