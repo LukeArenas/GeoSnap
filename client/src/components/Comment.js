@@ -15,10 +15,27 @@ const mapActionsToProps = (dispatch) => {
 }
 
 const Comment = (props) => {
+  const { comments } = props.commentState
+
+  //USE EFFECT
+
   useEffect(() => {
     props.getCommentsByPost(1)
   }, [])
-  return <div></div>
+
+  return (
+    <div>
+      {comments.length
+        ? comments.map((comment, idx) => (
+            <div key={idx}>
+              <img src={comment.User.profilePicture} alt="profile pic" />
+              <h4>@{comment.User.username}</h4>
+              <p>{comment.content}</p>
+            </div>
+          ))
+        : null}
+    </div>
+  )
 }
 
 export default connect(mapStateToProps, mapActionsToProps)(Comment)
