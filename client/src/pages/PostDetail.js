@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { getPostById } from '../store/actions/PostAction'
+import Comment from '../components/Comment'
 
 const mapStateToProps = ({ postState }) => {
   return { postState }
@@ -32,6 +33,7 @@ const PostDetail = (props) => {
       <img src={image} alt={caption} />
       <h4>{caption}</h4>
       <h3>Comments:</h3>
+      <Comment />
     </div>
   )
 }
