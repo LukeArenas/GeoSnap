@@ -26,3 +26,12 @@ export const CreatePost = async (body) => {
     throw error
   }
 }
+
+export const DeletePost = async (id) => {
+  try {
+    const res = await Client.delete(`/posts/${id}`)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}

@@ -1,5 +1,5 @@
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
+import { useHistory } from 'react-router'
 import { connect } from 'react-redux'
 import { createPost } from '../store/actions/PostAction'
 const Geocodio = require('geocodio-library-node')
@@ -33,12 +33,19 @@ const PostForm = (props) => {
   })
   const [address, setAddress] = useState('')
 
+  //USE HISTORY
+
+  const history = useHistory()
+
+  //METHODS
+
   const handleChange = (e) => {
     setNewPost({ ...newPost, [e.target.name]: e.target.value })
   }
 
   const handleSubmit = (e) => {
     props.createPost(newPost)
+    history.push('/map')
   }
 
   const handleAddress = (e) => {

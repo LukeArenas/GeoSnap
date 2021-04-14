@@ -35,7 +35,7 @@ const Comment = (props) => {
   //USE EFFECT
 
   useEffect(() => {
-    props.getCommentsByPostId(props.selectedPost.id)
+    props.getCommentsByPostId(props.postId)
   }, [])
 
   return (

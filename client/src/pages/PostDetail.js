@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import { getPostById } from '../store/actions/PostAction'
+import { deletePost, getPostById } from '../store/actions/PostAction'
 import Comment from '../components/Comment'
+import { useHistory } from 'react-router'
 
 const mapStateToProps = ({ postState }) => {
   return { postState }
@@ -9,7 +10,8 @@ const mapStateToProps = ({ postState }) => {
 
 const mapActionsToProps = (dispatch) => {
   return {
-    getPostById: (id) => dispatch(getPostById(id))
+    getPostById: (id) => dispatch(getPostById(id)),
+    deletePost: (id) => dispatch(deletePost(id))
   }
 }
 
@@ -17,9 +19,22 @@ const mapActionsToProps = (dispatch) => {
 const PostDetail = (props) => {
   const { image, caption, User } = props.postState.selectedPost
 
+  //USE HISTORY
+  const history = useHistory()
+
+  //METHODS
+
+  const handleDelete = (id) => {
+    props.deletePost(id)
+    history.push('/map')
+  }
+
+  //USE EFFECT
   useEffect(() => {
     props.getPostById(props.selectedPost.id)
   }, [])
+
+  const postId = props.selectedPost.id
 
   return (
     <div>
@@ -33,8 +48,11 @@ const PostDetail = (props) => {
       </div>
       <img src={image} alt={caption} />
       <h4>{caption}</h4>
+      <button onClick={() => handleDelete(props.selectedPost.id)}>
+        Delete
+      </button>
       <h3>Comments:</h3>
-      <Comment selectedPost={props.selectedPost} />
+      <Comment postId={postId} />
     </div>
   )
 }

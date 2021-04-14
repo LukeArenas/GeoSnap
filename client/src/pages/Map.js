@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import MapGL from 'react-map-gl'
 import Pin from '../components/Pin'

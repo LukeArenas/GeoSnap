@@ -1,4 +1,9 @@
-const { SET_POSTS, SET_SELECTED_POST, ADD_NEW_POST } = require('../types')
+const {
+  SET_POSTS,
+  SET_SELECTED_POST,
+  ADD_NEW_POST,
+  DELETE_POST
+} = require('../types')
 
 const initialState = {
   posts: [],
@@ -15,6 +20,11 @@ const PostReducer = (state = initialState, action) => {
       return { ...state, posts: [...state.posts, action.payload] }
     case SET_SELECTED_POST:
       return { ...state, selectedPost: action.payload }
+    case DELETE_POST:
+      const revisedPosts = state.posts.filter((post) => {
+        return post.id !== action.payload
+      })
+      return { ...state, posts: revisedPosts }
     default:
       return { ...state }
   }

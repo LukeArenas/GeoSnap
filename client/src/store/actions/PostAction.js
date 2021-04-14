@@ -1,9 +1,15 @@
 import {
   CreatePost,
+  DeletePost,
   GetAllPosts,
   GetPostById
 } from '../../services/PostService'
-import { SET_POSTS, SET_SELECTED_POST, ADD_NEW_POST } from '../types'
+import {
+  DELETE_POST,
+  SET_POSTS,
+  SET_SELECTED_POST,
+  ADD_NEW_POST
+} from '../types'
 
 export const getAllPosts = () => async (dispatch) => {
   try {
@@ -36,3 +42,12 @@ export const setSelectedPost = (post) => ({
   type: SET_SELECTED_POST,
   payload: post
 })
+
+export const deletePost = (id) => async (dispatch) => {
+  try {
+    await DeletePost(id)
+    dispatch({ type: DELETE_POST, payload: id })
+  } catch (error) {
+    throw error
+  }
+}

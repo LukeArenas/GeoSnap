@@ -14,8 +14,6 @@ const CommentReducer = (state = initialState, action) => {
       const revisedComments = state.comments.filter((comment) => {
         return comment.id !== action.payload
       })
-      console.log(revisedComments)
-      console.log(action.payload)
       return { ...state, comments: revisedComments }
     default:
       return { ...state }
