@@ -2,6 +2,7 @@ import './styles/App.css'
 import React, { useState } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import NavBar from './components/NavBar'
+import Homepage from './pages/Homepage'
 import Map from './pages/Map'
 import PostDetail from './pages/PostDetail'
 import PostForm from './pages/PostForm'
@@ -17,6 +18,7 @@ const App = () => {
       </header>
       <main>
         <Switch>
+          <Route exact path="/" component={() => <Homepage />} />
           <Route
             path="/map"
             component={() => (
