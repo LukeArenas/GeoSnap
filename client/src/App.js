@@ -1,6 +1,7 @@
 import './styles/App.css'
 import React, { useState } from 'react'
-import { Route, useHistory, Switch } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
+import NavBar from './components/NavBar'
 import Map from './pages/Map'
 import PostDetail from './pages/PostDetail'
 import PostForm from './pages/PostForm'
@@ -12,7 +13,7 @@ const App = () => {
   return (
     <div className="App">
       <header>
-        <div></div>
+        <NavBar />
       </header>
       <main>
         <Switch>
