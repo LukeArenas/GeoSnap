@@ -1,6 +1,7 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { login } from '../store/actions/AuthAction'
+import { register, setNewUser } from '../store/actions/AuthAction'
 
 //MAP STATE AND ACTIONS TO PROPS
 const mapStateToProps = ({ authState }) => {
@@ -9,21 +10,39 @@ const mapStateToProps = ({ authState }) => {
 
 const mapActionsToProps = (dispatch) => {
   return {
-    login: (body) => dispatch(login(body))
+    register: (body) => dispatch(register(body)),
+    setNewUser: (e) => dispatch(setNewUser(e))
   }
 }
 
 const Register = (props) => {
+  //DESTRUCTURING
+  const { email, password, username } = props.authState.newUser
+
+  //USE HISTORY
+  const history = useHistory()
+
+  //METHODS
+  const handleChange = (e) => {
+    props.setNewUser(e)
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    props.register(props.authState.newUser)
+    history.push('/map')
+  }
+
   return (
     <div>
       <h2>SignUp</h2>
-      {/* <form onSubmit={(event) => handleSubmit(event)}>
+      <form onSubmit={(e) => handleSubmit(e)}>
         <input
           name="username"
           placeholder="username"
           type="text"
           value={username}
-          onChange={(event) => handleChange(event)}
+          onChange={(e) => handleChange(e)}
         />
         <br></br>
         <input
@@ -31,7 +50,7 @@ const Register = (props) => {
           placeholder="email"
           type="text"
           value={email}
-          onChange={(event) => handleChange(event)}
+          onChange={(e) => handleChange(e)}
         />
         <br></br>
         <input
@@ -39,11 +58,11 @@ const Register = (props) => {
           placeholder="password"
           type="text"
           value={password}
-          onChange={(event) => handleChange(event)}
+          onChange={(e) => handleChange(e)}
         />
         <br></br>
         <input className="page-buttons" type="submit" value="Submit" />
-      </form> */}
+      </form>
     </div>
   )
 }

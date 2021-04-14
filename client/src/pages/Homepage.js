@@ -5,7 +5,7 @@ import Login from '../components/Login'
 const Homepage = () => {
   return (
     <div>
-      {/* <Register /> */}
+      <Register />
       <Login />
     </div>
   )

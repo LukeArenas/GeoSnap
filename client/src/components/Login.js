@@ -1,7 +1,7 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { login, setCreds } from '../store/actions/AuthAction'
-import { SET_LOGIN_CREDS } from '../store/types'
 
 //MAP STATE AND ACTIONS TO PROPS
 const mapStateToProps = ({ authState }) => {
@@ -19,6 +19,9 @@ const Login = (props) => {
   //DESTRUCTURING
   const { password, username } = props.authState.loginCreds
 
+  //USE HISTORY
+  const history = useHistory()
+
   //METHODS
   const handleChange = (e) => {
     props.setCreds(e)
@@ -27,6 +30,7 @@ const Login = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     props.login(props.authState.loginCreds)
+    history.push('/map')
   }
 
   return (

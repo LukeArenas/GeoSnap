@@ -9,8 +9,8 @@ import {
 } from '../store/actions/PostAction'
 import { useHistory } from 'react-router'
 
-const mapStateToProps = ({ postState }) => {
-  return { postState }
+const mapStateToProps = ({ postState, authState }) => {
+  return { postState, authState }
 }
 
 const mapActionsToProps = (dispatch) => {
