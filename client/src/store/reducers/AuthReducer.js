@@ -1,4 +1,9 @@
-import { SET_CURRENT_USER, SET_LOGIN_CREDS, SET_NEW_USER } from '../types'
+import {
+  SET_CURRENT_USER,
+  SET_LOGIN_CREDS,
+  SET_NEW_USER,
+  SET_REGISTERED
+} from '../types'
 
 const initialState = {
   currentUser: {},
@@ -10,7 +15,8 @@ const initialState = {
     username: '',
     password: '',
     email: ''
-  }
+  },
+  isRegistered: false
 }
 
 const AuthReducer = (state = initialState, action) => {
@@ -33,6 +39,8 @@ const AuthReducer = (state = initialState, action) => {
           [action.payload.name]: action.payload.value
         }
       }
+    case SET_REGISTERED:
+      return { ...state, isRegistered: !state.isRegistered }
     default:
       return { ...state }
   }

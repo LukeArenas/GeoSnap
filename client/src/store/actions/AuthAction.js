@@ -1,5 +1,10 @@
 import { Login, Register } from '../../services/AuthService'
-import { SET_CURRENT_USER, SET_LOGIN_CREDS, SET_NEW_USER } from '../types'
+import {
+  SET_CURRENT_USER,
+  SET_LOGIN_CREDS,
+  SET_NEW_USER,
+  SET_REGISTERED
+} from '../types'
 
 export const login = (body) => async (dispatch) => {
   const response = await Login(body)
@@ -19,4 +24,8 @@ export const setCreds = (e) => ({
 export const setNewUser = (e) => ({
   type: SET_NEW_USER,
   payload: { name: e.target.name, value: e.target.value }
+})
+
+export const setRegistered = () => ({
+  type: SET_REGISTERED
 })

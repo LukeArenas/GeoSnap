@@ -1,7 +1,11 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { register, setNewUser } from '../store/actions/AuthAction'
+import {
+  register,
+  setNewUser,
+  setRegistered
+} from '../store/actions/AuthAction'
 
 //MAP STATE AND ACTIONS TO PROPS
 const mapStateToProps = ({ authState }) => {
@@ -11,7 +15,8 @@ const mapStateToProps = ({ authState }) => {
 const mapActionsToProps = (dispatch) => {
   return {
     register: (body) => dispatch(register(body)),
-    setNewUser: (e) => dispatch(setNewUser(e))
+    setNewUser: (e) => dispatch(setNewUser(e)),
+    setRegistered: () => dispatch(setRegistered())
   }
 }
 
@@ -31,6 +36,10 @@ const Register = (props) => {
     e.preventDefault()
     props.register(props.authState.newUser)
     history.push('/map')
+  }
+
+  const changeToLogin = () => {
+    props.setRegistered()
   }
 
   return (
@@ -63,6 +72,8 @@ const Register = (props) => {
         <br></br>
         <input className="page-buttons" type="submit" value="Submit" />
       </form>
+      <p>Already have an account?</p>
+      <button onClick={() => changeToLogin()}>Login</button>
     </div>
   )
 }
