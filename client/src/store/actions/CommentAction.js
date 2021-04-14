@@ -3,7 +3,7 @@ import {
   DeleteComment,
   GetCommentsByPost
 } from '../../services/CommentService'
-import { ADD_NEW_COMMENT, DELETE_COMMENT, SET_COMMENTS } from '../types'
+import { DELETE_COMMENT, SET_COMMENTS } from '../types'
 
 export const getCommentsByPost = (postId) => async (dispatch) => {
   try {
@@ -16,8 +16,9 @@ export const getCommentsByPost = (postId) => async (dispatch) => {
 
 export const createComment = (body) => async (dispatch) => {
   try {
-    const newComment = await CreateComment(body)
-    dispatch({ type: ADD_NEW_COMMENT, payload: newComment })
+    const newComments = await CreateComment(body)
+    console.log(newComments)
+    dispatch({ type: SET_COMMENTS, payload: newComments })
   } catch (error) {
     throw error
   }

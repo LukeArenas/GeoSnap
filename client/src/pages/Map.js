@@ -16,7 +16,8 @@ const mapStateToProps = ({ postState }) => {
 const mapActionsToProps = (dispatch) => {
   return {
     getAllPosts: () => dispatch(getAllPosts()),
-    getPostById: (id) => dispatch(getPostById(id))
+    getPostById: (id) => dispatch(getPostById(id)),
+    setReducerPost: (post) => dispatch(setSelectedPost(post))
   }
 }
 
@@ -39,9 +40,9 @@ const Map = (props) => {
 
   const handleClick = (post) => {
     props.setSelectedPost(post)
+    props.setReducerPost(post)
     history.push('/detail')
   }
-  console.log(selectedPost)
 
   useEffect(() => {
     props.getAllPosts()

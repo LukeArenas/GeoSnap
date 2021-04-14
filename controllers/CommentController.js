@@ -23,8 +23,12 @@ const getCommentsByPost = async (req, res) => {
 
 const createComment = async (req, res) => {
   try {
-    const newComment = await Comment.create(req.body)
-    res.send(newComment)
+    await Comment.create(req.body)
+    const comments = await Comment.findAll({
+      where: { postId: req.body.postId },
+      include: [{ model: User, attributes: ['username', 'profilePicture'] }]
+    })
+    res.send(comments)
   } catch (error) {
     throw error
   }

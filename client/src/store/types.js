@@ -8,5 +8,4 @@ export const DELETE_POST = 'DELETE_POST'
 //COMMENTS
 
 export const SET_COMMENTS = 'SET_COMMENTS'
-export const ADD_NEW_COMMENT = 'ADD_NEW_COMMENT'
 export const DELETE_COMMENT = 'DELETE_COMMENT'

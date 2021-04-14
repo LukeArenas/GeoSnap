@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import {
   deleteComment,
@@ -8,8 +8,8 @@ import CommentForm from './CommentForm'
 
 //MAP STATE AND ACTIONS TO PROPS
 
-const mapStateToProps = ({ commentState }) => {
-  return { commentState }
+const mapStateToProps = ({ commentState, postState }) => {
+  return { commentState, postState }
 }
 
 const mapActionsToProps = (dispatch) => {
@@ -35,7 +35,7 @@ const Comment = (props) => {
   //USE EFFECT
 
   useEffect(() => {
-    props.getCommentsByPostId(props.selectedPost.id)
+    props.getCommentsByPostId(props.postState.selectedPost.id)
   }, [])
 
   return (
