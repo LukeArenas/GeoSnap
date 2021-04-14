@@ -1,8 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { connect } from 'react-redux'
 import MapGL from 'react-map-gl'
 import Pin from '../components/Pin'
-import { getAllPosts } from '../store/actions/PostAction'
+import {
+  getAllPosts,
+  getPostById,
+  setSelectedPost
+} from '../store/actions/PostAction'
+import { useHistory } from 'react-router'
 
 const mapStateToProps = ({ postState }) => {
   return { postState }
@@ -10,7 +15,8 @@ const mapStateToProps = ({ postState }) => {
 
 const mapActionsToProps = (dispatch) => {
   return {
-    getAllPosts: () => dispatch(getAllPosts())
+    getAllPosts: () => dispatch(getAllPosts()),
+    getPostById: (id) => dispatch(getPostById(id))
   }
 }
 
@@ -25,8 +31,17 @@ const Map = (props) => {
     zoom: 2
   })
 
+  //USE HISTORY
+  const history = useHistory()
+
   //DESTRUCTURE PROPS
-  const { posts } = props.postState
+  const { posts, selectedPost } = props.postState
+
+  const handleClick = (post) => {
+    props.setSelectedPost(post)
+    history.push('/detail')
+  }
+  console.log(selectedPost)
 
   useEffect(() => {
     props.getAllPosts()
@@ -41,8 +56,12 @@ const Map = (props) => {
       >
         {posts.length
           ? posts.map((post, idx) => (
-              <div key={idx}>
-                <Pin longitude={post.longitude} latitude={post.latitude} />
+              <div key={idx} onClick={() => handleClick(post)}>
+                <Pin
+                  longitude={post.longitude}
+                  latitude={post.latitude}
+                  image={post.image}
+                />
               </div>
             ))
           : null}

@@ -31,3 +31,8 @@ export const createPost = (body) => async (dispatch) => {
     throw error
   }
 }
+
+export const setSelectedPost = (post) => ({
+  type: SET_SELECTED_POST,
+  payload: post
+})

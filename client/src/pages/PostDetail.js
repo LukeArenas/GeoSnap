@@ -13,11 +13,12 @@ const mapActionsToProps = (dispatch) => {
   }
 }
 
+//COMPONENT
 const PostDetail = (props) => {
   const { image, caption, User } = props.postState.selectedPost
 
   useEffect(() => {
-    props.getPostById(1)
+    props.getPostById(props.selectedPost.id)
   }, [])
 
   return (
@@ -26,14 +27,14 @@ const PostDetail = (props) => {
         {User ? (
           <div>
             <img src={User.profilePicture} alt={User.username} />
-            <h4>@{User.username}</h4>{' '}
+            <h4>@{User.username}</h4>
           </div>
         ) : null}
       </div>
       <img src={image} alt={caption} />
       <h4>{caption}</h4>
       <h3>Comments:</h3>
-      <Comment />
+      <Comment selectedPost={props.selectedPost} />
     </div>
   )
 }

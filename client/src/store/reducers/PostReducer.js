@@ -13,6 +13,8 @@ const PostReducer = (state = initialState, action) => {
       return { ...state, selectedPost: action.payload }
     case ADD_NEW_POST:
       return { ...state, posts: [...state.posts, action.payload] }
+    case SET_SELECTED_POST:
+      return { ...state, selectedPost: action.payload }
     default:
       return { ...state }
   }

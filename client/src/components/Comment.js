@@ -14,7 +14,7 @@ const mapStateToProps = ({ commentState }) => {
 
 const mapActionsToProps = (dispatch) => {
   return {
-    getCommentsByPost: (postId) => dispatch(getCommentsByPost(postId)),
+    getCommentsByPostId: (postId) => dispatch(getCommentsByPost(postId)),
     deleteComment: (id) => dispatch(deleteComment(id))
   }
 }
@@ -26,7 +26,7 @@ const Comment = (props) => {
 
   const { comments } = props.commentState
 
-  //METHOD
+  //METHODS
 
   const removeComment = (id) => {
     props.deleteComment(id)
@@ -35,7 +35,7 @@ const Comment = (props) => {
   //USE EFFECT
 
   useEffect(() => {
-    props.getCommentsByPost(1)
+    props.getCommentsByPostId(props.selectedPost.id)
   }, [])
 
   return (
