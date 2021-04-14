@@ -11,8 +11,8 @@ const geocoder = new Geocodio(API_KEY.toString())
 
 //MAP STATE AND ACTIONS TO PROPS
 
-const mapStateToProps = ({ postState }) => {
-  return { postState }
+const mapStateToProps = ({ postState, authState }) => {
+  return { postState, authState }
 }
 
 const mapActionsToProps = (dispatch) => {
@@ -29,7 +29,7 @@ const PostForm = (props) => {
     caption: '',
     latitude: null,
     longitude: null,
-    userId: '44ca8d8d-4466-4802-86e4-97706b77f35d'
+    userId: props.authState.currentUser.id
   })
   const [address, setAddress] = useState('')
 

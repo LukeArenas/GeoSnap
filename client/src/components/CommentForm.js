@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { createComment } from '../store/actions/CommentAction'
 
-const mapStateToProps = ({ commentState }) => {
-  return { commentState }
+const mapStateToProps = ({ commentState, authState }) => {
+  return { commentState, authState }
 }
 
 const mapActionsToProps = (dispatch) => {
@@ -17,7 +17,7 @@ const mapActionsToProps = (dispatch) => {
 const CommentForm = (props) => {
   const [newComment, setNewComment] = useState({
     content: '',
-    userId: '44ca8d8d-4466-4802-86e4-97706b77f35d',
+    userId: props.authState.currentUser.id,
     postId: props.selectedPost.id
   })
 

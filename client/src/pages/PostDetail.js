@@ -48,6 +48,7 @@ const PostDetail = (props) => {
 
   const handleUpdates = (e) => {
     props.updatePost(props.postState.selectedPost)
+    props.setEditing()
   }
 
   //USE EFFECT
