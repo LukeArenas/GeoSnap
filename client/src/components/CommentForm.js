@@ -18,7 +18,7 @@ const CommentForm = (props) => {
   const [newComment, setNewComment] = useState({
     content: '',
     userId: '44ca8d8d-4466-4802-86e4-97706b77f35d',
-    postId: 1
+    postId: props.selectedPost.id
   })
 
   const handleChange = (e) => {
@@ -26,6 +26,7 @@ const CommentForm = (props) => {
   }
 
   const handleSubmit = (e) => {
+    e.preventDefault()
     props.createComment(newComment)
   }
 

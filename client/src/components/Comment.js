@@ -35,12 +35,12 @@ const Comment = (props) => {
   //USE EFFECT
 
   useEffect(() => {
-    props.getCommentsByPostId(props.postId)
+    props.getCommentsByPostId(props.selectedPost.id)
   }, [])
 
   return (
     <div>
-      <CommentForm />
+      <CommentForm selectedPost={props.selectedPost} />
       {comments.length
         ? comments.map((comment, idx) => (
             <div key={idx}>

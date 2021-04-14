@@ -34,8 +34,6 @@ const PostDetail = (props) => {
     props.getPostById(props.selectedPost.id)
   }, [])
 
-  const postId = props.selectedPost.id
-
   return (
     <div>
       <div>
@@ -52,7 +50,7 @@ const PostDetail = (props) => {
         Delete
       </button>
       <h3>Comments:</h3>
-      <Comment postId={postId} />
+      <Comment selectedPost={props.selectedPost} />
     </div>
   )
 }
