@@ -1,4 +1,5 @@
 import {
+  SET_AUTHENTICATED,
   SET_CURRENT_USER,
   SET_LOGIN_CREDS,
   SET_NEW_USER,
@@ -16,7 +17,8 @@ const initialState = {
     password: '',
     email: ''
   },
-  isRegistered: false
+  isRegistered: false,
+  isAuthenticated: false
 }
 
 const AuthReducer = (state = initialState, action) => {
@@ -41,6 +43,8 @@ const AuthReducer = (state = initialState, action) => {
       }
     case SET_REGISTERED:
       return { ...state, isRegistered: !state.isRegistered }
+    case SET_AUTHENTICATED:
+      return { ...state, isAuthenticated: !state.isAuthenticated }
     default:
       return { ...state }
   }

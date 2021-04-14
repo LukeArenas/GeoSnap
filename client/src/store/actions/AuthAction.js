@@ -1,5 +1,6 @@
 import { Login, Register } from '../../services/AuthService'
 import {
+  SET_AUTHENTICATED,
   SET_CURRENT_USER,
   SET_LOGIN_CREDS,
   SET_NEW_USER,
@@ -28,4 +29,8 @@ export const setNewUser = (e) => ({
 
 export const setRegistered = () => ({
   type: SET_REGISTERED
+})
+
+export const setAuthenticated = () => ({
+  type: SET_AUTHENTICATED
 })

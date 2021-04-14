@@ -20,6 +20,8 @@
   },
   "homepage": "https://github.com/LukeArenas/GeoSnap#readme",
   "dependencies": {
+    "@babel/preset-react": "^7.13.13",
+    "@babel/runtime": "^7.13.10",
     "bcrypt": "^5.0.1",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",

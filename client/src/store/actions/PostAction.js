@@ -2,13 +2,16 @@ import {
   CreatePost,
   DeletePost,
   GetAllPosts,
-  GetPostById
+  GetPostById,
+  UpdatePost
 } from '../../services/PostService'
 import {
   DELETE_POST,
   SET_POSTS,
   SET_SELECTED_POST,
-  ADD_NEW_POST
+  ADD_NEW_POST,
+  SET_EDITING,
+  SET_UPDATED
 } from '../types'
 
 export const getAllPosts = () => async (dispatch) => {
@@ -50,4 +53,18 @@ export const deletePost = (id) => async (dispatch) => {
   } catch (error) {
     throw error
   }
+}
+
+export const setEditing = () => ({
+  type: SET_EDITING
+})
+
+export const setUpdatedPost = (e) => ({
+  type: SET_UPDATED,
+  payload: { name: e.target.name, value: e.target.value }
+})
+
+export const updatePost = (body) => async (dispatch) => {
+  const response = await UpdatePost(body)
+  dispatch({ type: SET_SELECTED_POST, payload: response[1][0] })
 }

@@ -35,3 +35,12 @@ export const DeletePost = async (id) => {
     throw error
   }
 }
+
+export const UpdatePost = async (body) => {
+  try {
+    const res = await Client.put(`/posts/${body.id}`, body)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}

@@ -1,5 +1,4 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
 import { connect } from 'react-redux'
 import {
   register,
@@ -24,9 +23,6 @@ const Register = (props) => {
   //DESTRUCTURING
   const { email, password, username } = props.authState.newUser
 
-  //USE HISTORY
-  const history = useHistory()
-
   //METHODS
   const handleChange = (e) => {
     props.setNewUser(e)
@@ -35,7 +31,7 @@ const Register = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     props.register(props.authState.newUser)
-    history.push('/map')
+    props.setRegistered()
   }
 
   const changeToLogin = () => {
