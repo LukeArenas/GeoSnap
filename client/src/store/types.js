@@ -9,3 +9,8 @@ export const DELETE_POST = 'DELETE_POST'
 
 export const SET_COMMENTS = 'SET_COMMENTS'
 export const DELETE_COMMENT = 'DELETE_COMMENT'
+
+//AUTH
+
+export const SET_CURRENT_USER = 'SET_CURRENT_USER'
+export const SET_LOGIN_CREDS = 'SET_LOGIN_CREDS'

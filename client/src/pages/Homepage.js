@@ -1,8 +1,14 @@
 import React from 'react'
-import SignUp from '../components/SignUp'
+import Register from '../components/Register'
+import Login from '../components/Login'
 
 const Homepage = () => {
-  return <div>{/* <SignUp /> */}</div>
+  return (
+    <div>
+      {/* <Register /> */}
+      <Login />
+    </div>
+  )
 }
 
 export default Homepage

@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { login } from '../store/actions/AuthAction'
 
 //MAP STATE AND ACTIONS TO PROPS
 const mapStateToProps = ({ authState }) => {
@@ -8,15 +9,15 @@ const mapStateToProps = ({ authState }) => {
 
 const mapActionsToProps = (dispatch) => {
   return {
-    // getAllPosts: () => dispatch(getAllPosts())
+    login: (body) => dispatch(login(body))
   }
 }
 
-const SignUp = () => {
+const Register = (props) => {
   return (
     <div>
-      {/* <h1>SignUp</h1>
-      <form onSubmit={(event) => handleSubmit(event)}>
+      <h2>SignUp</h2>
+      {/* <form onSubmit={(event) => handleSubmit(event)}>
         <input
           name="username"
           placeholder="username"
@@ -41,10 +42,10 @@ const SignUp = () => {
           onChange={(event) => handleChange(event)}
         />
         <br></br>
-        <input className="page-buttons" type="submit" value="Submit" /> */}
-      {/* </form> */}
+        <input className="page-buttons" type="submit" value="Submit" />
+      </form> */}
     </div>
   )
 }
 
-export default connect(mapStateToProps, mapActionsToProps)(SignUp)
+export default connect(mapStateToProps, mapActionsToProps)(Register)
