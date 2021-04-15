@@ -1,0 +1,41 @@
+.comment-section {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.container {
+  display: flex;
+  width: 80vw;
+  justify-content: center;
+}
+
+.inner-container {
+  display: flex;
+  width: 60vw;
+  border: 1px solid rgb(216, 216, 216);
+}
+
+.profile-picture {
+  height: 10vh;
+  border-radius: 50%;
+}
+
+.content {
+  display: block;
+  text-align: left;
+}
+
+.text {
+  margin: 0.5em 0;
+}
+
+.handle {
+  margin: 0.5em 0;
+}
+
+.delete {
+  background-color: rgb(252, 143, 143);
+  border: none;
+  border-radius: 2px;
+}

@@ -5,6 +5,7 @@ import {
   getCommentsByPost
 } from '../store/actions/CommentAction'
 import CommentForm from './CommentForm'
+import '../styles/Comment.css'
 
 //MAP STATE AND ACTIONS TO PROPS
 
@@ -41,16 +42,31 @@ const Comment = (props) => {
   return (
     <div>
       <CommentForm selectedPost={props.selectedPost} />
-      {comments.length
-        ? comments.map((comment, idx) => (
-            <div key={idx}>
-              <img src={comment.User.profilePicture} alt="profile pic" />
-              <h4>@{comment.User.username}</h4>
-              <p>{comment.content}</p>
-              <button onClick={() => removeComment(comment.id)}>Delete</button>
-            </div>
-          ))
-        : null}
+      <div className="comment-section">
+        {comments.length
+          ? comments.map((comment, idx) => (
+              <div key={idx} className="container">
+                <div className="inner-container">
+                  <img
+                    src={comment.User.profilePicture}
+                    alt="profile pic"
+                    className="profile-picture"
+                  />
+                  <div className="content">
+                    <h4 className="handle">@{comment.User.username}</h4>
+                    <p className="text">{comment.content}</p>
+                    <button
+                      onClick={() => removeComment(comment.id)}
+                      className="delete"
+                    >
+                      X
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))
+          : null}
+      </div>
     </div>
   )
 }
