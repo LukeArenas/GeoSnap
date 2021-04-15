@@ -67,7 +67,7 @@ const App = (props) => {
           />
           <Route
             path="/detail"
-            component={() => (
+            render={() => (
               <PostDetail
                 selectedPost={selectedPost}
                 setSelectedPost={setSelectedPost}
