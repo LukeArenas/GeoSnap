@@ -1,4 +1,4 @@
-import { Login, Register } from '../../services/AuthService'
+import { Login, Register, CheckStoredToken } from '../../services/AuthService'
 import {
   SET_AUTHENTICATED,
   SET_CURRENT_USER,
@@ -9,6 +9,7 @@ import {
 
 export const login = (body) => async (dispatch) => {
   const response = await Login(body)
+  localStorage.setItem('token', response.token)
   dispatch({ type: SET_CURRENT_USER, payload: response.user })
 }
 
@@ -34,3 +35,10 @@ export const setRegistered = () => ({
 export const setAuthenticated = () => ({
   type: SET_AUTHENTICATED
 })
+
+export const checkStoredToken = () => async (dispatch) => {
+  const response = await CheckStoredToken()
+  console.log(response)
+  // dispatch({ type: SET_CURRENT_USER, payload: res.data })
+  // dispatch({ type: SET_AUTHENTICATED, payload: true })
+}

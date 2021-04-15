@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router'
 import { connect } from 'react-redux'
-import { createPost } from '../store/actions/PostAction'
+import { createPost, setNewPost, setLatLong } from '../store/actions/PostAction'
+import PostPreview from '../components/PostPreview'
 const Geocodio = require('geocodio-library-node')
 
 //SET UP GEOCODER
@@ -17,7 +18,9 @@ const mapStateToProps = ({ postState, authState }) => {
 
 const mapActionsToProps = (dispatch) => {
   return {
-    createPost: (body) => dispatch(createPost(body))
+    createPost: (body) => dispatch(createPost(body)),
+    setNewPost: (e) => dispatch(setNewPost(e)),
+    setLatLong: (dir, value) => dispatch(setLatLong(dir, value))
   }
 }
 
@@ -33,6 +36,8 @@ const PostForm = (props) => {
   })
   const [address, setAddress] = useState('')
 
+  const { image, caption } = props.postState.newPost
+
   //USE HISTORY
 
   const history = useHistory()
@@ -40,11 +45,14 @@ const PostForm = (props) => {
   //METHODS
 
   const handleChange = (e) => {
-    setNewPost({ ...newPost, [e.target.name]: e.target.value })
+    props.setNewPost(e)
   }
 
   const handleSubmit = (e) => {
-    props.createPost(newPost)
+    props.createPost({
+      ...props.postState.newPost,
+      userId: props.authState.currentUser.id
+    })
     history.push('/map')
   }
 
@@ -57,11 +65,12 @@ const PostForm = (props) => {
     try {
       const res = await geocoder.geocode(address)
       console.log(res.results[0].location)
-      setNewPost({
-        ...newPost,
-        latitude: res.results[0].location.lat,
-        longitude: res.results[0].location.lng
-      })
+      // props.setLatLong(
+      //   latitude: res.results[0].location.lat,
+      //   longitude: res.results[0].location.lng
+      // )
+      props.setLatLong('latitude', res.results[0].location.lat)
+      props.setLatLong('longitude', res.results[0].location.lng)
     } catch (error) {
       throw error
     }
@@ -69,18 +78,19 @@ const PostForm = (props) => {
 
   return (
     <div>
+      <h3>Create a post:</h3>
       <form onSubmit={(e) => handleSubmit(e)}>
         <input
           type="text"
           placeholder="image url"
-          value={newPost.image}
+          value={image}
           name="image"
           onChange={(e) => handleChange(e)}
         />
         <input
           type="text"
           placeholder="caption"
-          value={newPost.caption}
+          value={caption}
           name="caption"
           onChange={(e) => handleChange(e)}
         />
@@ -92,6 +102,7 @@ const PostForm = (props) => {
         />
         <button onClick={(e) => getCoordinates(e)}>Submit Address</button>
         <input type="submit" value="Submit" />
+        <PostPreview />
       </form>
     </div>
   )

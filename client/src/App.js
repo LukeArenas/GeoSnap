@@ -1,33 +1,43 @@
 import './styles/App.css'
 import React, { useState, useEffect } from 'react'
 import { Route, Switch } from 'react-router-dom'
+import { connect } from 'react-redux'
 import NavBar from './components/NavBar'
 import Homepage from './pages/Homepage'
 import Map from './pages/Map'
 import PostDetail from './pages/PostDetail'
 import PostForm from './pages/PostForm'
-import axios from 'axios'
+import { checkStoredToken } from './store/actions/AuthAction'
 require('dotenv').config()
 
-const App = () => {
+// const mapStateToProps = ({ authState }) => {
+//   return { authState }
+// }
+
+// const mapActionsToProps = (dispatch) => {
+//   return {
+//     checkStoredToken: () => dispatch(checkStoredToken())
+//   }
+// }
+
+const App = (props) => {
   const [selectedPost, setSelectedPost] = useState(null)
 
   //METHODS
-  // const checkStoredToken = async () => {
+  // const checkToken = async () => {
   //   let token = localStorage.getItem('token')
   //   if (token) {
-  //     const res = await axios.get(`http://localhost:3001/api/auth/session`)
-  //     dispatch({ type: SET_CURRENT_USER, payload: res.data })
-  //     dispatch({ type: SET_AUTHENTICATED, payload: true })
+  //     console.log('hello')
+  //     props.checkStoredToken()
   //   }
   // }
 
   //USE EFFECT
 
   // useEffect(() => {
-  //   checkStoredToken()
+  //   checkToken()
   //   // eslint-disable-next-line
-  // }, [state.authenticated])
+  // }, [props.authState.isAuthenticated])
 
   return (
     <div className="App">
@@ -63,3 +73,4 @@ const App = () => {
 }
 
 export default App
+// export default connect(mapStateToProps, mapActionsToProps)(App)

@@ -11,7 +11,8 @@ import {
   SET_SELECTED_POST,
   ADD_NEW_POST,
   SET_EDITING,
-  SET_UPDATED
+  SET_UPDATED,
+  SET_NEW_POST
 } from '../types'
 
 export const getAllPosts = () => async (dispatch) => {
@@ -68,3 +69,13 @@ export const updatePost = (body) => async (dispatch) => {
   const response = await UpdatePost(body)
   dispatch({ type: SET_SELECTED_POST, payload: response[1][0] })
 }
+
+export const setNewPost = (e) => ({
+  type: SET_NEW_POST,
+  payload: { name: e.target.name, value: e.target.value }
+})
+
+export const setLatLong = (dir, value) => ({
+  type: SET_NEW_POST,
+  payload: { name: dir, value: value }
+})

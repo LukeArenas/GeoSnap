@@ -4,13 +4,20 @@ const {
   ADD_NEW_POST,
   DELETE_POST,
   SET_EDITING,
-  SET_UPDATED
+  SET_UPDATED,
+  SET_NEW_POST
 } = require('../types')
 
 const initialState = {
   posts: [],
   selectedPost: {},
-  isEditing: false
+  isEditing: false,
+  newPost: {
+    image: '',
+    caption: '',
+    latitude: null,
+    longitude: null
+  }
 }
 
 const PostReducer = (state = initialState, action) => {
@@ -33,6 +40,14 @@ const PostReducer = (state = initialState, action) => {
         ...state,
         selectedPost: {
           ...state.selectedPost,
+          [action.payload.name]: action.payload.value
+        }
+      }
+    case SET_NEW_POST:
+      return {
+        ...state,
+        newPost: {
+          ...state.newPost,
           [action.payload.name]: action.payload.value
         }
       }

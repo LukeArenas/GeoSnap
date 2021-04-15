@@ -46,6 +46,7 @@ const Map = (props) => {
 
   useEffect(() => {
     props.getAllPosts()
+    // eslint-disable-next-line
   }, [])
 
   return (
