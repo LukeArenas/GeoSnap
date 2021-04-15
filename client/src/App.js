@@ -34,7 +34,8 @@ const App = (props) => {
     if (token) {
       props.checkStoredToken()
     }
-    if (currentUser && !isAuthenticated) {
+    if (token && !isAuthenticated) {
+      console.log('firing')
       props.setAuthenticated()
     }
   }
@@ -54,7 +55,7 @@ const App = (props) => {
       </header>
       <main>
         <Switch>
-          <Route exact path="/" component={() => <Homepage />} />
+          <Route exact path="/" render={() => <Homepage />} />
           <Route
             path="/map"
             component={() => (
@@ -73,7 +74,7 @@ const App = (props) => {
               />
             )}
           />
-          <Route path="/post" component={() => <PostForm />} />
+          <Route path="/post" render={() => <PostForm />} />
         </Switch>
       </main>
     </div>

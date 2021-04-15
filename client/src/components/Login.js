@@ -11,7 +11,7 @@ const mapStateToProps = ({ authState }) => {
 const mapActionsToProps = (dispatch) => {
   return {
     login: (body) => dispatch(login(body)),
-    setCreds: (e) => dispatch(setCreds(e)),
+    setCreds: (name, value) => dispatch(setCreds(name, value)),
     setAuthenticated: () => dispatch(setAuthenticated())
   }
 }
@@ -25,7 +25,7 @@ const Login = (props) => {
 
   //METHODS
   const handleChange = (e) => {
-    props.setCreds(e)
+    props.setCreds(e.target.name, e.target.value)
   }
 
   const handleSubmit = (e) => {
@@ -33,7 +33,8 @@ const Login = (props) => {
     if (props.authState.loginCreds) {
       props.login(props.authState.loginCreds)
     }
-
+    props.setCreds('password', '')
+    props.setCreds('username', '')
     props.setAuthenticated()
     history.push('/map')
   }

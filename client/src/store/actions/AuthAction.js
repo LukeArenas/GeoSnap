@@ -18,9 +18,9 @@ export const register = (body) => async (dispatch) => {
   console.log(`User created with id ${newUser.id}`)
 }
 
-export const setCreds = (e) => ({
+export const setCreds = (name, value) => ({
   type: SET_LOGIN_CREDS,
-  payload: { name: e.target.name, value: e.target.value }
+  payload: { name: name, value: value }
 })
 
 export const setNewUser = (e) => ({
@@ -38,6 +38,7 @@ export const setAuthenticated = () => ({
 
 export const checkStoredToken = () => async (dispatch) => {
   const response = await CheckStoredToken()
-  console.log(response)
   dispatch({ type: SET_CURRENT_USER, payload: response })
 }
+
+export const logout = () => ({ type: SET_CURRENT_USER, payload: {} })
