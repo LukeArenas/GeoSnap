@@ -36,7 +36,9 @@ const Comment = (props) => {
   //USE EFFECT
 
   useEffect(() => {
-    props.getCommentsByPostId(props.postState.selectedPost.id)
+    if (!comments.length) {
+      props.getCommentsByPostId(props.postState.selectedPost.id)
+    }
   }, [])
 
   return (

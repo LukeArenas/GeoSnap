@@ -46,8 +46,9 @@ const Map = (props) => {
   }
 
   useEffect(() => {
-    console.log('fetching posts')
-    props.getAllPosts()
+    if (!posts.length) {
+      props.getAllPosts()
+    }
   }, [])
 
   return (

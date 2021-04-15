@@ -11,15 +11,15 @@ import { checkStoredToken } from './store/actions/AuthAction'
 // import { getAllPosts } from './store/actions/PostAction'
 require('dotenv').config()
 
-// const mapStateToProps = ({ authState }) => {
-//   return { authState }
-// }
+const mapStateToProps = ({ authState }) => {
+  return { authState }
+}
 
-// const mapActionsToProps = (dispatch) => {
-//   return {
-//     checkStoredToken: () => dispatch(checkStoredToken())
-//   }
-// }
+const mapActionsToProps = (dispatch) => {
+  return {
+    checkStoredToken: () => dispatch(checkStoredToken())
+  }
+}
 
 const App = (props) => {
   const [selectedPost, setSelectedPost] = useState(null)
@@ -79,5 +79,5 @@ const App = (props) => {
   )
 }
 
-export default App
-// export default connect(mapStateToProps, mapActionsToProps)(App)
+// export default App
+export default connect(mapStateToProps, mapActionsToProps)(App)

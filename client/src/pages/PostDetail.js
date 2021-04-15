@@ -54,7 +54,9 @@ const PostDetail = (props) => {
 
   //USE EFFECT
   useEffect(() => {
-    props.getPostById(props.selectedPost.id)
+    if (!props.postState.selectedPost.User) {
+      props.getPostById(props.selectedPost.id)
+    }
   }, [])
 
   return (
