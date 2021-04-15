@@ -7,5 +7,6 @@
 }
 
 .pin:hover {
-  width: 10vw;
+  width: 8vw;
+  border-radius: 10%;
 }

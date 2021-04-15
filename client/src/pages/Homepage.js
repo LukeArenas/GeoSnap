@@ -20,16 +20,25 @@ const Homepage = (props) => {
   const { isRegistered } = props.authState
 
   return (
-    <div>
-      {isRegistered ? (
-        <div>
-          <Login />
-        </div>
-      ) : (
-        <div>
-          <Register />
-        </div>
-      )}
+    <div className="homepage">
+      <div className="homepage-gif">
+        <h3 className="title">Explore a world of memories</h3>
+        <img
+          src="https://i.pinimg.com/originals/d7/ae/01/d7ae0170d3d5ffcbaa7f02fdda387a3b.gif"
+          alt="spinning globe"
+        />
+      </div>
+      <div className="credentials-container">
+        {isRegistered ? (
+          <div className="credentials-form">
+            <Login />
+          </div>
+        ) : (
+          <div className="credentials-form">
+            <Register />
+          </div>
+        )}
+      </div>
     </div>
   )
 }

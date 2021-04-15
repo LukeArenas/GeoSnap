@@ -30,7 +30,7 @@ const Map = (props) => {
     width: '100%',
     height: '100%',
     latitude: 39.73989,
-    longitude: -104.98458,
+    longitude: -98.5795,
     zoom: 4
   })
 
@@ -43,7 +43,18 @@ const Map = (props) => {
   const handleClick = (post) => {
     props.setSelectedPost(post)
     props.setReducerPost(post)
-    history.push('/detail')
+
+    const sameLocationArray = props.postState.posts.filter((element) => {
+      return (
+        element.latitude === post.latitude &&
+        element.longitude === post.longitude
+      )
+    })
+    if (sameLocationArray.length === 1) {
+      history.push('/detail')
+    } else {
+      history.push('/feed')
+    }
   }
 
   useEffect(() => {

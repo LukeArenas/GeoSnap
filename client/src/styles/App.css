@@ -14,3 +14,39 @@ header {
 .map-container {
   height: 90vh;
 }
+
+.homepage {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+}
+
+.credentials-container {
+  display: flex;
+  min-height: 90vh;
+  width: 45vw;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(238, 237, 237);
+}
+
+.credentials-form {
+  height: 40vh;
+  width: 20vw;
+  background-color: white;
+  box-shadow: 5px 5px 10px grey;
+}
+
+.homepage-gif {
+  min-height: 90vh;
+  width: 55vw;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  width: 55vw;
+  margin: 0;
+}
