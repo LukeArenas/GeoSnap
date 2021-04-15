@@ -67,9 +67,7 @@ const Map = (props) => {
                   longitude={post.longitude}
                   offsetLeft={-20}
                   offsetTop={-40}
-                  className="pin"
                 >
-                  {/* <h1>hello</h1> */}
                   <img
                     src={pin}
                     className="pin"

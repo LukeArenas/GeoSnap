@@ -40,7 +40,15 @@ const updatePost = async (req, res) => {
       where: { id: req.params.id },
       returning: true
     })
-    res.send(updatedPost)
+    const post = await Post.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['username', 'profilePicture']
+        }
+      ]
+    })
+    res.send(post)
   } catch (error) {
     throw error
   }

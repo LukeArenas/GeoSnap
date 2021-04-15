@@ -67,7 +67,7 @@ export const setUpdatedPost = (e) => ({
 
 export const updatePost = (body) => async (dispatch) => {
   const response = await UpdatePost(body)
-  dispatch({ type: SET_SELECTED_POST, payload: response[1][0] })
+  dispatch({ type: SET_SELECTED_POST, payload: response })
 }
 
 export const setNewPost = (e) => ({
