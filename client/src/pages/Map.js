@@ -8,6 +8,7 @@ import {
   setSelectedPost
 } from '../store/actions/PostAction'
 import { useHistory } from 'react-router'
+import '../styles/App.css'
 
 const mapStateToProps = ({ postState, authState }) => {
   return { postState, authState }
@@ -26,7 +27,7 @@ const ACCESS_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN
 const Map = (props) => {
   const [viewport, setViewport] = useState({
     width: '100%',
-    height: 900,
+    height: '100%',
     latitude: 39.73989,
     longitude: -104.98458,
     zoom: 4
@@ -50,7 +51,7 @@ const Map = (props) => {
   }, [])
 
   return (
-    <div>
+    <div className="map-container">
       <MapGL
         {...viewport}
         onViewportChange={(nextViewport) => setViewport(nextViewport)}

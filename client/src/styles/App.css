@@ -4,8 +4,13 @@
 
 header {
   background-color: rgb(68, 131, 68);
+  height: 10vh;
 }
 
 .title {
   margin-top: 0;
+}
+
+.map-container {
+  height: 90vh;
 }
