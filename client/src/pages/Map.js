@@ -52,10 +52,6 @@ const Map = (props) => {
     }
   }, [])
 
-  // const marker = new mapboxgl.Marker()
-  //   .setLngLat([-104.98458, 39.73989])
-  //   .addTo(map)
-
   return (
     <div className="map-container">
       <MapGL
@@ -71,8 +67,15 @@ const Map = (props) => {
                   longitude={post.longitude}
                   offsetLeft={-20}
                   offsetTop={-40}
+                  className="pin"
                 >
-                  <img src={pin} className="pin" />
+                  {/* <h1>hello</h1> */}
+                  <img
+                    src={pin}
+                    className="pin"
+                    onMouseOver={(e) => (e.currentTarget.src = post.image)}
+                    onMouseOut={(e) => (e.currentTarget.src = pin)}
+                  />
                 </Marker>
               </div>
             ))
