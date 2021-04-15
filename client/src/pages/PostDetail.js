@@ -73,13 +73,29 @@ const PostDetail = (props) => {
               <h4 className="handle">@{User.username}</h4>
             </div>
           ) : null}
-          <div className="delete-container">
+          <div className="dropdown">
             <button
-              onClick={() => handleDelete(props.selectedPost.id)}
-              className="delete-button"
+              onClick={(e) => (e.target.nextSibling.className = '.show')}
+              class="dropbtn"
             >
-              X
+              ...
             </button>
+            <div id="myDropdown" className="dropdown-content">
+              <div className="dropdown-option">
+                <button
+                  onClick={() => handleDelete(props.selectedPost.id)}
+                  className="dropdown-choice"
+                >
+                  Delete
+                </button>
+                <button
+                  onClick={() => handleEdit()}
+                  className="dropdown-choice"
+                >
+                  Edit
+                </button>
+              </div>
+            </div>
           </div>
         </div>
         <img src={image} alt={caption} className="post-picture" />
