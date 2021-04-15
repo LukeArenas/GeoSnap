@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import MapGL, { Marker } from 'react-map-gl'
-import Pin from '../components/Pin'
 import {
   getAllPosts,
   getPostById,
@@ -9,6 +8,7 @@ import {
 } from '../store/actions/PostAction'
 import { useHistory } from 'react-router'
 import '../styles/App.css'
+import '../styles/Map.css'
 import pin from '../assets/pin-icon.png'
 
 const mapStateToProps = ({ postState, authState }) => {

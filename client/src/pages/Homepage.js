@@ -22,7 +22,7 @@ const Homepage = (props) => {
   return (
     <div className="homepage">
       <div className="homepage-gif">
-        <h3 className="title">Explore a world of memories</h3>
+        <h3 className="greeting">Explore a world of memories</h3>
         <img
           src="https://i.pinimg.com/originals/d7/ae/01/d7ae0170d3d5ffcbaa7f02fdda387a3b.gif"
           alt="spinning globe"
