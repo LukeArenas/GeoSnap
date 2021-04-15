@@ -27,13 +27,13 @@ const mapActionsToProps = (dispatch) => {
 // COMPONENT
 
 const PostForm = (props) => {
-  const [newPost, setNewPost] = useState({
-    image: '',
-    caption: '',
-    latitude: null,
-    longitude: null,
-    userId: props.authState.currentUser.id
-  })
+  // const [newPost, setNewPost] = useState({
+  //   image: '',
+  //   caption: '',
+  //   latitude: null,
+  //   longitude: null,
+  //   userId: props.authState.currentUser.id
+  // })
   const [address, setAddress] = useState('')
 
   const { image, caption } = props.postState.newPost

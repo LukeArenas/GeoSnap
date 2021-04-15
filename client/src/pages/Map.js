@@ -25,11 +25,11 @@ const ACCESS_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN
 
 const Map = (props) => {
   const [viewport, setViewport] = useState({
-    width: 700,
-    height: 700,
+    width: '100%',
+    height: 900,
     latitude: 39.73989,
     longitude: -104.98458,
-    zoom: 2
+    zoom: 4
   })
 
   //USE HISTORY
@@ -45,8 +45,8 @@ const Map = (props) => {
   }
 
   useEffect(() => {
+    console.log('fetching posts')
     props.getAllPosts()
-    // eslint-disable-next-line
   }, [])
 
   return (

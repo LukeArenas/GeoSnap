@@ -8,6 +8,7 @@ import Map from './pages/Map'
 import PostDetail from './pages/PostDetail'
 import PostForm from './pages/PostForm'
 import { checkStoredToken } from './store/actions/AuthAction'
+// import { getAllPosts } from './store/actions/PostAction'
 require('dotenv').config()
 
 // const mapStateToProps = ({ authState }) => {
@@ -39,9 +40,15 @@ const App = (props) => {
   //   // eslint-disable-next-line
   // }, [props.authState.isAuthenticated])
 
+  // useEffect(() => {
+  //   props.getAllPosts()
+  //   // eslint-disable-next-line
+  // }, [])
+
   return (
     <div className="App">
       <header>
+        <h1 className="title">GeoSnap</h1>
         <NavBar />
       </header>
       <main>

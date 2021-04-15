@@ -9,6 +9,7 @@ import {
 } from '../store/actions/PostAction'
 import Comment from '../components/Comment'
 import { useHistory } from 'react-router'
+import '../styles/Post.css'
 
 const mapStateToProps = ({ postState }) => {
   return { postState }
@@ -61,12 +62,16 @@ const PostDetail = (props) => {
       <div>
         {User ? (
           <div>
-            <img src={User.profilePicture} alt={User.username} />
-            <h4>@{User.username}</h4>
+            <img
+              src={User.profilePicture}
+              alt={User.username}
+              className="profile-picture"
+            />
+            <h4 className="handle">@{User.username}</h4>
           </div>
         ) : null}
       </div>
-      <img src={image} alt={caption} />
+      <img src={image} alt={caption} className="post-picture" />
       {props.postState.isEditing ? (
         <div>
           <input
