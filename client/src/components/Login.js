@@ -30,7 +30,10 @@ const Login = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    props.login(props.authState.loginCreds)
+    if (props.authState.loginCreds) {
+      props.login(props.authState.loginCreds)
+    }
+
     props.setAuthenticated()
     history.push('/map')
   }

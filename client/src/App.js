@@ -7,8 +7,8 @@ import Homepage from './pages/Homepage'
 import Map from './pages/Map'
 import PostDetail from './pages/PostDetail'
 import PostForm from './pages/PostForm'
-import { checkStoredToken } from './store/actions/AuthAction'
-// import { getAllPosts } from './store/actions/PostAction'
+import { checkStoredToken, setAuthenticated } from './store/actions/AuthAction'
+import axios from 'axios'
 require('dotenv').config()
 
 const mapStateToProps = ({ authState }) => {
@@ -17,33 +17,34 @@ const mapStateToProps = ({ authState }) => {
 
 const mapActionsToProps = (dispatch) => {
   return {
-    checkStoredToken: () => dispatch(checkStoredToken())
+    checkStoredToken: () => dispatch(checkStoredToken()),
+    setAuthenticated: () => dispatch(setAuthenticated())
   }
 }
 
 const App = (props) => {
   const [selectedPost, setSelectedPost] = useState(null)
 
-  //METHODS
-  // const checkToken = async () => {
-  //   let token = localStorage.getItem('token')
-  //   if (token) {
-  //     console.log('hello')
-  //     props.checkStoredToken()
-  //   }
-  // }
+  //DESTRUCTURING
+  const { currentUser, isAuthenticated } = props.authState
+
+  // METHODS
+  const checkToken = () => {
+    let token = localStorage.getItem('token')
+    if (token) {
+      props.checkStoredToken()
+    }
+    if (currentUser && !isAuthenticated) {
+      props.setAuthenticated()
+    }
+  }
 
   //USE EFFECT
 
-  // useEffect(() => {
-  //   checkToken()
-  //   // eslint-disable-next-line
-  // }, [props.authState.isAuthenticated])
-
-  // useEffect(() => {
-  //   props.getAllPosts()
-  //   // eslint-disable-next-line
-  // }, [])
+  useEffect(() => {
+    checkToken()
+    // eslint-disable-next-line
+  }, [props.authState.isAuthenticated])
 
   return (
     <div className="App">

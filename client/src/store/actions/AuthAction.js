@@ -39,6 +39,5 @@ export const setAuthenticated = () => ({
 export const checkStoredToken = () => async (dispatch) => {
   const response = await CheckStoredToken()
   console.log(response)
-  // dispatch({ type: SET_CURRENT_USER, payload: res.data })
-  // dispatch({ type: SET_AUTHENTICATED, payload: true })
+  dispatch({ type: SET_CURRENT_USER, payload: response })
 }

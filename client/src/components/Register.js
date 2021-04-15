@@ -25,6 +25,7 @@ const Register = (props) => {
 
   //METHODS
   const handleChange = (e) => {
+    e.preventDefault()
     props.setNewUser(e)
   }
 

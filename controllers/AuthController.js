@@ -42,7 +42,6 @@ const Register = async (req, res) => {
 }
 
 const GetCurrentUser = async (req, res) => {
-  console.log(res)
   try {
     res.send(res.locals.token)
   } catch (error) {
