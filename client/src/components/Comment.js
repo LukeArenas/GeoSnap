@@ -46,14 +46,19 @@ const Comment = (props) => {
           ? comments.map((comment, idx) => (
               <div key={idx} className="container">
                 <div className="inner-container">
-                  <img
-                    src={comment.User.profilePicture}
-                    alt="profile pic"
-                    className="profile-picture"
-                  />
                   <div className="content">
-                    <h4 className="handle">@{comment.User.username}</h4>
-                    <p className="text">{comment.content}</p>
+                    <img
+                      src={comment.User.profilePicture}
+                      alt="profile pic"
+                      className="profile-picture"
+                    />
+                    <div className="content-container">
+                      <h4 className="handle">@{comment.User.username}</h4>
+                      <p className="text">{comment.content}</p>
+                    </div>
+                  </div>
+
+                  <div className="delete-container">
                     <button
                       onClick={() => removeComment(comment.id)}
                       className="delete"

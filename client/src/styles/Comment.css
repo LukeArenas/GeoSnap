@@ -11,7 +11,8 @@
 }
 
 .inner-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: 10fr 1fr;
   width: 60vw;
   border: 1px solid rgb(216, 216, 216);
 }
@@ -22,22 +23,33 @@
 }
 
 .content {
-  display: block;
+  display: grid;
+  grid-template-columns: 1fr 8fr;
+  width: 60vw;
   text-align: left;
 }
 
 .text {
-  margin: 0.5em 0;
+  margin: 0 0 0.5em 0;
+  width: 45vw;
 }
 
 .handle {
   margin: 0.5em 0;
+  width: 45vw;
+}
+
+.delete-container {
+  display: relative;
 }
 
 .delete {
   background-color: rgb(252, 143, 143);
   border: none;
   border-radius: 2px;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .comment-form {
@@ -47,4 +59,10 @@
 
 .comment-input {
   width: 30vw;
+}
+
+.content-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
 }

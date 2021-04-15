@@ -28,6 +28,11 @@ const CommentForm = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     props.createComment(newComment)
+    setNewComment({
+      content: '',
+      userId: props.authState.currentUser.id,
+      postId: props.selectedPost.id
+    })
   }
 
   return (
@@ -36,6 +41,7 @@ const CommentForm = (props) => {
         <input
           type="text"
           placeholder="Leave a comment"
+          value={newComment.content}
           onChange={(e) => handleChange(e)}
           className="comment-input"
         />
