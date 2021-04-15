@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
-import MapGL from 'react-map-gl'
+import MapGL, { Marker } from 'react-map-gl'
 import Pin from '../components/Pin'
 import {
   getAllPosts,
@@ -9,6 +9,7 @@ import {
 } from '../store/actions/PostAction'
 import { useHistory } from 'react-router'
 import '../styles/App.css'
+import pin from '../assets/pin-icon.png'
 
 const mapStateToProps = ({ postState, authState }) => {
   return { postState, authState }
@@ -51,6 +52,10 @@ const Map = (props) => {
     }
   }, [])
 
+  // const marker = new mapboxgl.Marker()
+  //   .setLngLat([-104.98458, 39.73989])
+  //   .addTo(map)
+
   return (
     <div className="map-container">
       <MapGL
@@ -61,11 +66,14 @@ const Map = (props) => {
         {posts.length
           ? posts.map((post, idx) => (
               <div key={idx} onClick={() => handleClick(post)}>
-                <Pin
-                  longitude={post.longitude}
+                <Marker
                   latitude={post.latitude}
-                  image={post.image}
-                />
+                  longitude={post.longitude}
+                  offsetLeft={-20}
+                  offsetTop={-40}
+                >
+                  <img src={pin} className="pin" />
+                </Marker>
               </div>
             ))
           : null}

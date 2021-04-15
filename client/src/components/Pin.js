@@ -1,11 +1,12 @@
 import React from 'react'
 import { MapContext } from 'react-map-gl'
+import '../styles/Map.css'
 
 function Pin(props) {
   const context = React.useContext(MapContext)
 
   //DESTRUCTURING
-  const { longitude, latitude, image } = props
+  const { longitude, latitude, image, viewport } = props
 
   const [x, y] = context.viewport.project([longitude, latitude])
 
@@ -18,7 +19,14 @@ function Pin(props) {
 
   return (
     <div style={markerStyle}>
-      {/* <img src={image} alt="user post" /> */}({longitude}, {latitude})
+      {/* {viewport.zoom > } */}
+      {/* <img
+        src="https://i.imgur.com/od6ga6F.png"
+        alt="user post"
+        className="pin-thumbnail"
+      /> */}
+      <div className="pin">o</div>
+      {/* ({longitude}, {latitude}) */}
     </div>
   )
 }
