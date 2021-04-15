@@ -41,7 +41,6 @@ const Comment = (props) => {
 
   return (
     <div>
-      <CommentForm selectedPost={props.selectedPost} />
       <div className="comment-section">
         {comments.length
           ? comments.map((comment, idx) => (
@@ -66,6 +65,9 @@ const Comment = (props) => {
               </div>
             ))
           : null}
+        <div className="comment-form">
+          <CommentForm selectedPost={props.selectedPost} />
+        </div>
       </div>
     </div>
   )

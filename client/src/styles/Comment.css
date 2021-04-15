@@ -39,3 +39,12 @@
   border: none;
   border-radius: 2px;
 }
+
+.comment-form {
+  display: flex;
+  width: 60vw;
+}
+
+.comment-input {
+  width: 30vw;
+}

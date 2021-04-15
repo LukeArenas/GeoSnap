@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { createComment } from '../store/actions/CommentAction'
 
-const mapStateToProps = ({ commentState, authState }) => {
-  return { commentState, authState }
+const mapStateToProps = ({ commentState, authState, postState }) => {
+  return { commentState, authState, postState }
 }
 
 const mapActionsToProps = (dispatch) => {
@@ -35,8 +35,9 @@ const CommentForm = (props) => {
       <form onSubmit={(e) => handleSubmit(e)}>
         <input
           type="text"
-          placeholder="Enter comment"
+          placeholder="Leave a comment"
           onChange={(e) => handleChange(e)}
+          className="comment-input"
         />
         <input type="submit" value="Submit" />
       </form>

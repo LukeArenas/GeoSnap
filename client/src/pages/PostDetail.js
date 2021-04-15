@@ -11,8 +11,8 @@ import Comment from '../components/Comment'
 import { useHistory } from 'react-router'
 import '../styles/Post.css'
 
-const mapStateToProps = ({ postState }) => {
-  return { postState }
+const mapStateToProps = ({ postState, commentState }) => {
+  return { postState, commentState }
 }
 
 const mapActionsToProps = (dispatch) => {
@@ -60,40 +60,54 @@ const PostDetail = (props) => {
   }, [])
 
   return (
-    <div>
-      <div>
-        {User ? (
-          <div>
-            <img
-              src={User.profilePicture}
-              alt={User.username}
-              className="profile-picture"
-            />
-            <h4 className="handle">@{User.username}</h4>
+    <div className="detail-page">
+      <div className="post-card">
+        <div className="grid-container">
+          {User ? (
+            <div>
+              <img
+                src={User.profilePicture}
+                alt={User.username}
+                className="profile-picture"
+              />
+              <h4 className="handle">@{User.username}</h4>
+            </div>
+          ) : null}
+          <div className="delete-container">
+            <button
+              onClick={() => handleDelete(props.selectedPost.id)}
+              className="delete-button"
+            >
+              X
+            </button>
           </div>
-        ) : null}
+        </div>
+        <img src={image} alt={caption} className="post-picture" />
+        {props.postState.isEditing ? (
+          <div>
+            <input
+              type="text"
+              placeholder="caption"
+              value={caption}
+              name="caption"
+              onChange={(e) => handleChange(e)}
+            />
+            <button onClick={(e) => handleUpdates(e)}>Done</button>
+          </div>
+        ) : (
+          <div>
+            <h4>{caption}</h4>
+            <button onClick={() => handleEdit()}>...</button>
+          </div>
+        )}
       </div>
-      <img src={image} alt={caption} className="post-picture" />
-      {props.postState.isEditing ? (
-        <div>
-          <input
-            type="text"
-            placeholder="caption"
-            value={caption}
-            name="caption"
-            onChange={(e) => handleChange(e)}
-          />
-          <button onClick={(e) => handleUpdates(e)}>Done</button>
-        </div>
-      ) : (
-        <div>
-          <h4>{caption}</h4>
-          <button onClick={() => handleEdit()}>...</button>
-        </div>
-      )}
-      <button onClick={() => handleDelete(props.selectedPost.id)}>X</button>
-      <h3>Comments:</h3>
-      <Comment selectedPost={props.selectedPost} />
+
+      <div className="comment-section">
+        <h3 className="section-title">
+          Comments ({props.commentState.comments.length})
+        </h3>
+        <Comment selectedPost={props.selectedPost} />
+      </div>
     </div>
   )
 }

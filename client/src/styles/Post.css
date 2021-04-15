@@ -1,3 +1,47 @@
-.post-picture {
+.detail-page {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: rgb(238, 237, 237);
+}
+
+.post-card {
+  background-color: white;
   width: 80vw;
+  margin-top: 5vh;
+}
+
+.post-picture {
+  width: 70vw;
+}
+
+.section-title {
+  width: 60vw;
+  text-align: left;
+  margin-bottom: 0;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.delete-container {
+  position: relative;
+}
+
+.delete-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: rgb(252, 143, 143);
+  width: 5vw;
+  height: 5vh;
+}
+
+.comment-section {
+  background-color: white;
+  width: 80vw;
+  margin-bottom: 2vh;
+  margin-top: 2vh;
 }
