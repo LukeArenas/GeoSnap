@@ -11,8 +11,8 @@ import Comment from '../components/Comment'
 import { useHistory } from 'react-router'
 import '../styles/Post.css'
 
-const mapStateToProps = ({ postState, commentState }) => {
-  return { postState, commentState }
+const mapStateToProps = ({ postState, commentState, authState }) => {
+  return { postState, commentState, authState }
 }
 
 const mapActionsToProps = (dispatch) => {
@@ -55,7 +55,7 @@ const PostDetail = (props) => {
   //USE EFFECT
   useEffect(() => {
     if (!props.postState.selectedPost.User) {
-      props.getPostById(props.selectedPost.id)
+      props.getPostById(props.postState.selectedPost.id)
     }
   }, [])
 
@@ -73,30 +73,35 @@ const PostDetail = (props) => {
               <h4 className="handle">@{User.username}</h4>
             </div>
           ) : null}
-          <div className="dropdown">
-            <button
-              onClick={(e) => (e.target.nextSibling.className = '.show')}
-              class="dropbtn"
-            >
-              ...
-            </button>
-            <div className="dropdown-content">
-              <div className="dropdown-option">
-                <button
-                  onClick={() => handleDelete(props.selectedPost.id)}
-                  className="dropdown-choice"
-                >
-                  Delete
-                </button>
-                <button
-                  onClick={() => handleEdit()}
-                  className="dropdown-choice"
-                >
-                  Edit
-                </button>
+          {props.authState.currentUser.username ===
+          props.postState.selectedPost.User.username ? (
+            <div className="dropdown">
+              <button
+                onClick={(e) => (e.target.nextSibling.className = '.show')}
+                class="dropbtn"
+              >
+                ...
+              </button>
+              <div className="dropdown-content">
+                <div className="dropdown-option">
+                  <button
+                    onClick={() =>
+                      handleDelete(props.postState.selectedPost.id)
+                    }
+                    className="dropdown-choice"
+                  >
+                    Delete
+                  </button>
+                  <button
+                    onClick={() => handleEdit()}
+                    className="dropdown-choice"
+                  >
+                    Edit
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
+          ) : null}
         </div>
         <img src={image} alt={caption} className="post-picture" />
         {props.postState.isEditing ? (

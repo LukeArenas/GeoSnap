@@ -71,12 +71,17 @@ const Comment = (props) => {
                   </div>
 
                   <div className="delete-container">
-                    <button
-                      onClick={() => removeComment(comment.id)}
-                      className="delete"
-                    >
-                      X
-                    </button>
+                    {props.authState.currentUser.username ===
+                    comment.User.username ? (
+                      <div>
+                        <button
+                          onClick={() => removeComment(comment.id)}
+                          className="delete"
+                        >
+                          X
+                        </button>
+                      </div>
+                    ) : null}
                   </div>
                 </div>
               </div>
