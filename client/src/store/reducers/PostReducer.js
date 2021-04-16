@@ -5,7 +5,8 @@ const {
   DELETE_POST,
   SET_EDITING,
   SET_UPDATED,
-  SET_NEW_POST
+  SET_NEW_POST,
+  SET_FILTERED_POSTS
 } = require('../types')
 
 const initialState = {
@@ -17,7 +18,8 @@ const initialState = {
     caption: '',
     latitude: null,
     longitude: null
-  }
+  },
+  filteredPosts: []
 }
 
 const PostReducer = (state = initialState, action) => {
@@ -51,6 +53,8 @@ const PostReducer = (state = initialState, action) => {
           [action.payload.name]: action.payload.value
         }
       }
+    case SET_FILTERED_POSTS:
+      return { ...state, filteredPosts: action.payload }
     default:
       return { ...state }
   }

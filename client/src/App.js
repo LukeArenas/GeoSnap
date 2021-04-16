@@ -75,7 +75,7 @@ const App = (props) => {
             )}
           />
           <Route path="/post" render={() => <PostForm />} />
-          {/* <Route path="/feed" render={() => <Feed />} /> */}
+          <Route path="/feed" render={() => <Feed />} />
         </Switch>
       </main>
     </div>

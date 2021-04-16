@@ -4,7 +4,8 @@ import MapGL, { Marker } from 'react-map-gl'
 import {
   getAllPosts,
   getPostById,
-  setSelectedPost
+  setSelectedPost,
+  setPosts
 } from '../store/actions/PostAction'
 import { useHistory } from 'react-router'
 import '../styles/App.css'
@@ -19,7 +20,8 @@ const mapActionsToProps = (dispatch) => {
   return {
     getAllPosts: () => dispatch(getAllPosts()),
     getPostById: (id) => dispatch(getPostById(id)),
-    setReducerPost: (post) => dispatch(setSelectedPost(post))
+    setReducerPost: (post) => dispatch(setSelectedPost(post)),
+    setPosts: (posts) => dispatch(setPosts(posts))
   }
 }
 
@@ -53,6 +55,7 @@ const Map = (props) => {
     if (sameLocationArray.length === 1) {
       history.push('/detail')
     } else {
+      props.setPosts(sameLocationArray)
       history.push('/feed')
     }
   }

@@ -12,7 +12,8 @@ import {
   ADD_NEW_POST,
   SET_EDITING,
   SET_UPDATED,
-  SET_NEW_POST
+  SET_NEW_POST,
+  SET_FILTERED_POSTS
 } from '../types'
 
 export const getAllPosts = () => async (dispatch) => {
@@ -78,4 +79,9 @@ export const setNewPost = (e) => ({
 export const setLatLong = (dir, value) => ({
   type: SET_NEW_POST,
   payload: { name: dir, value: value }
+})
+
+export const setPosts = (posts) => ({
+  type: SET_FILTERED_POSTS,
+  payload: posts
 })
