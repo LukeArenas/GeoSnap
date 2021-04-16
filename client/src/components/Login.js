@@ -19,6 +19,7 @@ const mapActionsToProps = (dispatch) => {
 const Login = (props) => {
   //DESTRUCTURING
   const { password, username } = props.authState.loginCreds
+  const { loginCreds, currentUser, isAuthenicated } = props.authState
 
   //USE HISTORY
   const history = useHistory()
@@ -28,15 +29,18 @@ const Login = (props) => {
     props.setCreds(e.target.name, e.target.value)
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    if (props.authState.loginCreds) {
-      props.login(props.authState.loginCreds)
+    let response
+    if (loginCreds) {
+      response = await props.login(props.authState.loginCreds)
     }
     props.setCreds('password', '')
     props.setCreds('username', '')
-    props.setAuthenticated()
-    history.push('/map')
+    console.log(response)
+    if (response.token) {
+      history.push('/map')
+    }
   }
 
   return (

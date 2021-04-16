@@ -7,6 +7,7 @@ export const Register = async (body) => {
 
 export const Login = async (body) => {
   const res = await Client.post('/auth/login', body)
+  console.log(res.data)
   return res.data
 }
 

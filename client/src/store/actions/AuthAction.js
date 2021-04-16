@@ -1,4 +1,3 @@
-import e from 'cors'
 import {
   Login,
   Register,
@@ -17,7 +16,12 @@ import {
 export const login = (body) => async (dispatch) => {
   const response = await Login(body)
   localStorage.setItem('token', response.token)
-  dispatch({ type: SET_CURRENT_USER, payload: response.user })
+  console.log(response)
+  if (response.token) {
+    dispatch({ type: SET_CURRENT_USER, payload: response.user })
+    dispatch({ type: SET_AUTHENTICATED, payload: true })
+  }
+  return response
 }
 
 export const register = (body) => async (dispatch) => {
