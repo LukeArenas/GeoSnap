@@ -30,6 +30,7 @@
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
     "pg": "^8.5.1",
+    "react-easy-crop": "^3.3.2",
     "react-map-gl": "^6.1.11",
     "sequelize": "^6.6.2",
     "uuid": "^8.3.2",

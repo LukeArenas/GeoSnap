@@ -64,7 +64,7 @@ const PostDetail = (props) => {
       <div className="post-card">
         <div className="grid-container">
           {User ? (
-            <div>
+            <div className="poster-container">
               <img
                 src={User.profilePicture}
                 alt={User.username}
@@ -80,7 +80,7 @@ const PostDetail = (props) => {
             >
               ...
             </button>
-            <div id="myDropdown" className="dropdown-content">
+            <div className="dropdown-content">
               <div className="dropdown-option">
                 <button
                   onClick={() => handleDelete(props.selectedPost.id)}
@@ -111,9 +111,8 @@ const PostDetail = (props) => {
             <button onClick={(e) => handleUpdates(e)}>Done</button>
           </div>
         ) : (
-          <div>
+          <div className="align-text-left">
             <h4>{caption}</h4>
-            <button onClick={() => handleEdit()}>...</button>
           </div>
         )}
       </div>

@@ -3,6 +3,7 @@ import { useHistory } from 'react-router'
 import { connect } from 'react-redux'
 import { createPost, setNewPost, setLatLong } from '../store/actions/PostAction'
 import PostPreview from '../components/PostPreview'
+import CropImage from '../components/Cropper'
 const Geocodio = require('geocodio-library-node')
 
 //SET UP GEOCODER
@@ -102,6 +103,7 @@ const PostForm = (props) => {
         />
         <button onClick={(e) => getCoordinates(e)}>Submit Address</button>
         <input type="submit" value="Submit" />
+        <CropImage />
         <PostPreview />
       </form>
     </div>

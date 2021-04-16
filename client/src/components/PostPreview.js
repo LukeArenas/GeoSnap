@@ -16,18 +16,26 @@ const PostPreview = (props) => {
   const { currentUser } = props.authState
 
   return (
-    <div>
-      <h3>Preview</h3>
-      <div>
-        {currentUser ? (
-          <div>
-            <img src={currentUser.profilePicture} alt={currentUser.username} />
-            <h4>@{currentUser.username}</h4>
-          </div>
-        ) : null}
+    <div className="preview">
+      <div className="preview-container">
+        <h3 className="section-title">Preview</h3>
+        <div>
+          {currentUser ? (
+            <div className="user-container">
+              <img
+                src={currentUser.profilePicture}
+                alt={currentUser.username}
+                className="profile-picture"
+              />
+              <h4>@{currentUser.username}</h4>
+            </div>
+          ) : null}
+        </div>
+        <img src={image} alt={caption} className="preview-pic" />
+        <h4 className="align-text-left">
+          @{currentUser.username} {caption}
+        </h4>
       </div>
-      <img src={image} alt={caption} />
-      <h4>{caption}</h4>
     </div>
   )
 }
