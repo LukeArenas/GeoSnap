@@ -8,6 +8,7 @@ export const SET_EDITING = 'SET_EDITING'
 export const SET_UPDATED = 'SET_UPDATED'
 export const SET_NEW_POST = 'SET_NEW_POST'
 export const SET_FILTERED_POSTS = 'SET_FILTERED_POSTS'
+export const SET_FILTER = 'SET_FILTER'
 
 //COMMENTS
 

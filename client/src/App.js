@@ -36,7 +36,6 @@ const App = (props) => {
       props.checkStoredToken()
     }
     if (token && !isAuthenticated) {
-      console.log('firing')
       props.setAuthenticated()
     }
   }

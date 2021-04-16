@@ -18,7 +18,7 @@ const CommentForm = (props) => {
   const [newComment, setNewComment] = useState({
     content: '',
     userId: props.authState.currentUser.id,
-    postId: props.selectedPost.id
+    postId: props.postState.selectedPost.id
   })
 
   const handleChange = (e) => {

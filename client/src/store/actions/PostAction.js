@@ -13,7 +13,8 @@ import {
   SET_EDITING,
   SET_UPDATED,
   SET_NEW_POST,
-  SET_FILTERED_POSTS
+  SET_FILTERED_POSTS,
+  SET_FILTER
 } from '../types'
 
 export const getAllPosts = () => async (dispatch) => {
@@ -84,4 +85,9 @@ export const setLatLong = (dir, value) => ({
 export const setPosts = (posts) => ({
   type: SET_FILTERED_POSTS,
   payload: posts
+})
+
+export const setFilter = (filter) => ({
+  type: SET_FILTER,
+  payload: filter
 })

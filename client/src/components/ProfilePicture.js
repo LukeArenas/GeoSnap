@@ -32,7 +32,6 @@ const ProfilePicture = (props) => {
 
   return (
     <div>
-      <h3>Profile</h3>
       <form onSubmit={(e) => submitProfilePicture(e)}>
         <input type="file" onChange={(e) => setNewFile(e)} />
         <input type="submit" value="Submit" disabled={!props.authState.file} />
