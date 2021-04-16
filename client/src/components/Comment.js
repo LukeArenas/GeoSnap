@@ -9,8 +9,8 @@ import '../styles/Comment.css'
 
 //MAP STATE AND ACTIONS TO PROPS
 
-const mapStateToProps = ({ commentState, postState }) => {
-  return { commentState, postState }
+const mapStateToProps = ({ commentState, postState, authState }) => {
+  return { commentState, postState, authState }
 }
 
 const mapActionsToProps = (dispatch) => {
@@ -42,6 +42,18 @@ const Comment = (props) => {
   return (
     <div className="comment-section">
       <div className="comment-content-container">
+        <div className="comment-form">
+          {comments.length ? (
+            <div>
+              <img
+                src={props.authState.currentUser.profilePicture}
+                alt={'current user'}
+                className="profile-picture"
+              />
+            </div>
+          ) : null}
+          <CommentForm selectedPost={props.selectedPost} />
+        </div>
         {comments.length
           ? comments.map((comment, idx) => (
               <div key={idx} className="container">
@@ -70,9 +82,6 @@ const Comment = (props) => {
               </div>
             ))
           : null}
-        <div className="comment-form">
-          <CommentForm selectedPost={props.selectedPost} />
-        </div>
       </div>
     </div>
   )

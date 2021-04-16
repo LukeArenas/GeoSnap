@@ -14,7 +14,8 @@
   display: grid;
   grid-template-columns: 10fr 1fr;
   width: 45vw;
-  border: 1px solid rgb(216, 216, 216);
+  border: 1px solid rgb(231, 231, 231);
+  background-color: rgb(250, 250, 250);
 }
 
 .profile-picture {
@@ -55,10 +56,13 @@
 .comment-form {
   display: flex;
   width: 60vw;
+  align-items: center;
 }
 
 .comment-input {
   width: 30vw;
+  height: 5vh;
+  font-size: 16px;
 }
 
 .content-container {
