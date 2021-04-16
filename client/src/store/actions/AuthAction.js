@@ -28,8 +28,9 @@ export const setNewUser = (e) => ({
   payload: { name: e.target.name, value: e.target.value }
 })
 
-export const setRegistered = () => ({
-  type: SET_REGISTERED
+export const setRegistered = (bool) => ({
+  type: SET_REGISTERED,
+  payload: bool
 })
 
 export const setAuthenticated = () => ({

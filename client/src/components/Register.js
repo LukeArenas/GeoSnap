@@ -15,7 +15,7 @@ const mapActionsToProps = (dispatch) => {
   return {
     register: (body) => dispatch(register(body)),
     setNewUser: (e) => dispatch(setNewUser(e)),
-    setRegistered: () => dispatch(setRegistered())
+    setRegistered: (bool) => dispatch(setRegistered(bool))
   }
 }
 
@@ -31,11 +31,11 @@ const Register = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     props.register(props.authState.newUser)
-    props.setRegistered()
+    props.setRegistered(true)
   }
 
   const changeToLogin = () => {
-    props.setRegistered()
+    props.setRegistered(true)
   }
 
   return (

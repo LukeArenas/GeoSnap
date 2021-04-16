@@ -1,7 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { NavLink, useHistory } from 'react-router-dom'
-import { logout, setAuthenticated } from '../store/actions/AuthAction'
+import {
+  logout,
+  setAuthenticated,
+  setRegistered
+} from '../store/actions/AuthAction'
 
 const mapStateToProps = ({ authState }) => {
   return { authState }
@@ -10,7 +14,8 @@ const mapStateToProps = ({ authState }) => {
 const mapActionsToProps = (dispatch) => {
   return {
     logout: () => dispatch(logout()),
-    setAuthenticated: () => dispatch(setAuthenticated())
+    setAuthenticated: () => dispatch(setAuthenticated()),
+    setRegistered: (bool) => dispatch(setRegistered(bool))
   }
 }
 
@@ -22,10 +27,14 @@ const NavBar = (props) => {
   //METHODS
 
   const logoutUser = () => {
-    console.log('clicked logout!')
     localStorage.clear()
     props.setAuthenticated()
     props.logout()
+    history.push('/')
+  }
+
+  const redirectToLogin = (bool) => {
+    props.setRegistered(bool)
     history.push('/')
   }
 
@@ -43,8 +52,8 @@ const NavBar = (props) => {
         </div>
       ) : (
         <div>
-          <button>Login</button>
-          <button>Sign Up</button>
+          <button onClick={() => redirectToLogin(true)}>Login</button>
+          <button onClick={() => redirectToLogin(false)}>Sign Up</button>
         </div>
       )}
     </div>

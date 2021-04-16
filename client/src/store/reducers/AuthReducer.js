@@ -42,7 +42,7 @@ const AuthReducer = (state = initialState, action) => {
         }
       }
     case SET_REGISTERED:
-      return { ...state, isRegistered: !state.isRegistered }
+      return { ...state, isRegistered: action.payload }
     case SET_AUTHENTICATED:
       return { ...state, isAuthenticated: !state.isAuthenticated }
     default:
