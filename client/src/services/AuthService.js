@@ -14,3 +14,8 @@ export const CheckStoredToken = async () => {
   const res = await Client.get('/auth/session')
   return res.data
 }
+
+export const UpdateProfilePicture = async (id, data) => {
+  const res = await Client.put(`/users/profile/${id}`, data)
+  return res.data
+}

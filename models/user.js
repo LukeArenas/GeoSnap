@@ -1,5 +1,6 @@
 const { uuid } = require('uuidv4')
 const { Model } = require('sequelize')
+const { deleteFile } = require('../aws')
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**
@@ -31,12 +32,20 @@ module.exports = (sequelize, DataTypes) => {
       profilePicture: {
         type: DataTypes.STRING,
         defaultValue: 'https://i.imgur.com/od6ga6F.png'
+      },
+      fileName: {
+        type: DataTypes.STRING
       }
     },
     {
       sequelize,
       modelName: 'User',
-      tableName: 'users'
+      tableName: 'users',
+      hooks: {
+        beforeDestroy: async (fields) => {
+          await deleteFile(fields.fileName)
+        }
+      } //removes profile picture from aws before destroying user
     }
   )
   User.beforeCreate((user, _) => {

@@ -3,7 +3,8 @@ import {
   SET_CURRENT_USER,
   SET_LOGIN_CREDS,
   SET_NEW_USER,
-  SET_REGISTERED
+  SET_REGISTERED,
+  SET_FILE
 } from '../types'
 
 const initialState = {
@@ -18,7 +19,8 @@ const initialState = {
     email: ''
   },
   isRegistered: false,
-  isAuthenticated: false
+  isAuthenticated: false,
+  file: {}
 }
 
 const AuthReducer = (state = initialState, action) => {
@@ -45,6 +47,8 @@ const AuthReducer = (state = initialState, action) => {
       return { ...state, isRegistered: action.payload }
     case SET_AUTHENTICATED:
       return { ...state, isAuthenticated: !state.isAuthenticated }
+    case SET_FILE:
+      return { ...state, file: action.payload }
     default:
       return { ...state }
   }

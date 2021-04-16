@@ -1,4 +1,5 @@
 const { User } = require('../models')
+const { upload } = require('../aws')
 
 const getAllUsers = async (req, res) => {
   try {
@@ -18,4 +19,17 @@ const createUser = async (req, res) => {
   }
 }
 
-module.exports = { getAllUsers, createUser }
+const updateUser = async (req, res) => {
+  try {
+    const uploadParams = await upload(req.file)
+    const updatedUser = await User.update(uploadParams, {
+      where: { id: req.params.id },
+      returning: true
+    })
+    res.send(updatedUser)
+  } catch (error) {
+    throw error
+  }
+}
+
+module.exports = { getAllUsers, createUser, updateUser }

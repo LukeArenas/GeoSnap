@@ -1,10 +1,17 @@
-import { Login, Register, CheckStoredToken } from '../../services/AuthService'
+import e from 'cors'
+import {
+  Login,
+  Register,
+  CheckStoredToken,
+  UpdateProfilePicture
+} from '../../services/AuthService'
 import {
   SET_AUTHENTICATED,
   SET_CURRENT_USER,
   SET_LOGIN_CREDS,
   SET_NEW_USER,
-  SET_REGISTERED
+  SET_REGISTERED,
+  SET_FILE
 } from '../types'
 
 export const login = (body) => async (dispatch) => {
@@ -16,6 +23,11 @@ export const login = (body) => async (dispatch) => {
 export const register = (body) => async (dispatch) => {
   const newUser = await Register(body)
   console.log(`User created with id ${newUser.id}`)
+}
+
+export const updateProfilePicture = (id, data) => async (dispatch) => {
+  const updatedUser = await UpdateProfilePicture(id, data)
+  dispatch({ type: SET_CURRENT_USER, payload: updatedUser[1][0] })
 }
 
 export const setCreds = (name, value) => ({
@@ -43,3 +55,5 @@ export const checkStoredToken = () => async (dispatch) => {
 }
 
 export const logout = () => ({ type: SET_CURRENT_USER, payload: {} })
+
+export const setFile = (file) => ({ type: SET_FILE, payload: file })

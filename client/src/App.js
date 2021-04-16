@@ -9,6 +9,7 @@ import PostDetail from './pages/PostDetail'
 import PostForm from './pages/PostForm'
 import Feed from './pages/Feed'
 import { checkStoredToken, setAuthenticated } from './store/actions/AuthAction'
+import Profile from './pages/Profile'
 require('dotenv').config()
 
 const mapStateToProps = ({ authState }) => {
@@ -76,6 +77,7 @@ const App = (props) => {
           />
           <Route path="/post" render={() => <PostForm />} />
           <Route path="/feed" render={() => <Feed />} />
+          <Route path="/profile" render={() => <Profile />} />
         </Switch>
       </main>
     </div>
