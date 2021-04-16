@@ -40,8 +40,8 @@ const Comment = (props) => {
   }, [props.postState.selectedPost.id])
 
   return (
-    <div>
-      <div className="comment-section">
+    <div className="comment-section">
+      <div className="comment-content-container">
         {comments.length
           ? comments.map((comment, idx) => (
               <div key={idx} className="container">

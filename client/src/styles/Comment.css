@@ -6,14 +6,14 @@
 
 .container {
   display: flex;
-  width: 80vw;
-  justify-content: center;
+  width: 60vw;
+  justify-content: left;
 }
 
 .inner-container {
   display: grid;
   grid-template-columns: 10fr 1fr;
-  width: 60vw;
+  width: 45vw;
   border: 1px solid rgb(216, 216, 216);
 }
 
@@ -25,13 +25,13 @@
 .content {
   display: grid;
   grid-template-columns: 1fr 8fr;
-  width: 60vw;
+  width: 45vw;
   text-align: left;
 }
 
 .text {
   margin: 0 0 0.5em 0;
-  width: 45vw;
+  width: 35vw;
 }
 
 .handle {
@@ -65,4 +65,8 @@
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
+}
+
+.comment-content-container {
+  width: 45vw;
 }
