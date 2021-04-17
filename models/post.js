@@ -30,7 +30,8 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.UUID,
         onDelete: 'CASCADE',
         references: { model: 'users', key: 'id' }
-      }
+      },
+      fileName: DataTypes.STRING
     },
     {
       sequelize,

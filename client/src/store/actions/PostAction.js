@@ -91,3 +91,7 @@ export const setFilter = (filter) => ({
   type: SET_FILTER,
   payload: filter
 })
+
+export const setImage = (data) => async (dispatch) => {
+  const newPost = await CreatePost(data)
+}

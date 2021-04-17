@@ -19,7 +19,7 @@ const upload = async (file, acl = 'public-read') => {
         Bucket: AWS_BUCKET
       })
       .promise()
-    return { profilePicture: res.Location, fileName: file.originalname } //Location is the path to where image is stored
+    return { image: res.Location, fileName: file.originalname } //Location is the path to where image is stored
   } catch (error) {
     throw error
   }

@@ -1,4 +1,5 @@
 const { Post, Comment, User } = require('../models')
+const { upload } = require('../aws')
 
 const getAllPosts = async (req, res) => {
   try {
@@ -30,7 +31,12 @@ const getPostById = async (req, res) => {
 
 const createPost = async (req, res) => {
   try {
-    const newPost = await Post.create(req.body)
+    const uploadParams = await upload(req.file)
+    const newPost = await Post.create({
+      ...req.body,
+      image: uploadParams.image,
+      fileName: uploadParams.fileName
+    })
     res.send(newPost)
   } catch (error) {
     throw error
@@ -39,7 +45,7 @@ const createPost = async (req, res) => {
 
 const updatePost = async (req, res) => {
   try {
-    const updatedPost = await Post.update(req.body, {
+    await Post.update(req.body, {
       where: { id: req.params.id },
       returning: true
     })

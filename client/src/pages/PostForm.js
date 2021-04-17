@@ -3,7 +3,7 @@ import { useHistory } from 'react-router'
 import { connect } from 'react-redux'
 import { createPost, setNewPost, setLatLong } from '../store/actions/PostAction'
 import PostPreview from '../components/PostPreview'
-import CropImage from '../components/Cropper'
+import { setFile } from '../store/actions/AuthAction'
 const Geocodio = require('geocodio-library-node')
 
 //SET UP GEOCODER
@@ -21,20 +21,14 @@ const mapActionsToProps = (dispatch) => {
   return {
     createPost: (body) => dispatch(createPost(body)),
     setNewPost: (e) => dispatch(setNewPost(e)),
-    setLatLong: (dir, value) => dispatch(setLatLong(dir, value))
+    setLatLong: (dir, value) => dispatch(setLatLong(dir, value)),
+    setFile: (file) => dispatch(setFile(file))
   }
 }
 
 // COMPONENT
 
 const PostForm = (props) => {
-  // const [newPost, setNewPost] = useState({
-  //   image: '',
-  //   caption: '',
-  //   latitude: null,
-  //   longitude: null,
-  //   userId: props.authState.currentUser.id
-  // })
   const [address, setAddress] = useState('')
 
   const { image, caption } = props.postState.newPost
@@ -54,7 +48,7 @@ const PostForm = (props) => {
       ...props.postState.newPost,
       userId: props.authState.currentUser.id
     })
-    history.push('/map')
+    // history.push('/map')
   }
 
   const handleAddress = (e) => {
@@ -77,17 +71,28 @@ const PostForm = (props) => {
     }
   }
 
+  const setNewFile = (e) => {
+    console.log(e.target.files[0])
+    props.setFile(e.target.files[0])
+  }
+
+  const submitImage = (e) => {
+    e.preventDefault()
+    if (props.authState.file) {
+      let formData = new FormData()
+      formData.append('image', props.authState.file)
+      formData.append('caption', props.postState.newPost.caption)
+      formData.append('latitude', props.postState.newPost.latitude)
+      formData.append('longitude', props.postState.newPost.longitude)
+      props.createPost(formData)
+    }
+  }
+
   return (
     <div>
-      <h3>Create a post:</h3>
-      <form onSubmit={(e) => handleSubmit(e)}>
-        <input
-          type="text"
-          placeholder="image url"
-          value={image}
-          name="image"
-          onChange={(e) => handleChange(e)}
-        />
+      <h3>Pin a new memory:</h3>
+      <form onSubmit={(e) => submitImage(e)}>
+        <input type="file" onChange={(e) => setNewFile(e)} />
         <input
           type="text"
           placeholder="caption"
@@ -103,7 +108,7 @@ const PostForm = (props) => {
         />
         <button onClick={(e) => getCoordinates(e)}>Submit Address</button>
         <input type="submit" value="Submit" />
-        <CropImage />
+        {/* <CropImage /> */}
         <PostPreview />
       </form>
     </div>

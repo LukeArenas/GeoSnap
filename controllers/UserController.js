@@ -20,12 +20,17 @@ const createUser = async (req, res) => {
 }
 
 const updateUser = async (req, res) => {
+  console.log(req)
   try {
     const uploadParams = await upload(req.file)
-    const updatedUser = await User.update(uploadParams, {
-      where: { id: req.params.id },
-      returning: true
-    })
+    console.log(uploadParams)
+    const updatedUser = await User.update(
+      { profilePicture: uploadParams.image, fileName: uploadParams.fileName },
+      {
+        where: { id: req.params.id },
+        returning: true
+      }
+    )
     res.send(updatedUser)
   } catch (error) {
     throw error
