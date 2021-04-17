@@ -1,15 +1,18 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { setFile, updateProfilePicture } from '../store/actions/AuthAction'
+import { setEditing } from '../store/actions/PostAction'
 
-const mapStateToProps = ({ authState }) => {
-  return { authState }
+const mapStateToProps = ({ authState, postState }) => {
+  return { authState, postState }
 }
 
 const mapActionsToProps = (dispatch) => {
   return {
     setFile: (file) => dispatch(setFile(file)),
-    updateProfilePicture: (id, data) => dispatch(updateProfilePicture(id, data))
+    updateProfilePicture: (id, data) =>
+      dispatch(updateProfilePicture(id, data)),
+    setEditing: () => dispatch(setEditing())
   }
 }
 
@@ -28,6 +31,7 @@ const ProfilePicture = (props) => {
       console.log(formData.get('profilePicture'))
       props.updateProfilePicture(props.authState.currentUser.id, formData)
     }
+    props.setEditing()
   }
 
   return (

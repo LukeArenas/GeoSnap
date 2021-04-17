@@ -58,7 +58,7 @@ const NavBar = (props) => {
           {/* <Filter /> */}
         </div>
       ) : (
-        <div>
+        <div className="navbar">
           <button onClick={() => redirectToLogin(true)} className="nav-btn">
             Login
           </button>
