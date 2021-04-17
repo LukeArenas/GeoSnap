@@ -48,7 +48,7 @@ const PostForm = (props) => {
       ...props.postState.newPost,
       userId: props.authState.currentUser.id
     })
-    // history.push('/map')
+    history.push('/map')
   }
 
   const handleAddress = (e) => {
@@ -84,6 +84,7 @@ const PostForm = (props) => {
       formData.append('caption', props.postState.newPost.caption)
       formData.append('latitude', props.postState.newPost.latitude)
       formData.append('longitude', props.postState.newPost.longitude)
+      formData.append('userId', props.authState.currentUser.id)
       props.createPost(formData)
     }
   }
