@@ -40,25 +40,31 @@ const NavBar = (props) => {
   }
 
   return (
-    <div>
+    <div className="navbar-container">
       {props.authState.isAuthenticated ? (
         <div className="navbar">
           <NavLink to="/profile">
-            <button>Profile</button>
+            <button className="nav-btn">Profile</button>
           </NavLink>
           <NavLink to="/map">
-            <button>Map</button>
+            <button className="nav-btn">Map</button>
           </NavLink>
           <NavLink to="/post">
-            <button>Post</button>
+            <button className="nav-btn">Post</button>
           </NavLink>
-          <button onClick={() => logoutUser()}>Logout</button>
+          <button onClick={() => logoutUser()} className="nav-btn">
+            Logout
+          </button>
           {/* <Filter /> */}
         </div>
       ) : (
         <div>
-          <button onClick={() => redirectToLogin(true)}>Login</button>
-          <button onClick={() => redirectToLogin(false)}>Sign Up</button>
+          <button onClick={() => redirectToLogin(true)} className="nav-btn">
+            Login
+          </button>
+          <button onClick={() => redirectToLogin(false)} className="nav-btn">
+            Sign Up
+          </button>
         </div>
       )}
     </div>

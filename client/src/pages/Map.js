@@ -34,6 +34,7 @@ const Map = (props) => {
     latitude: 39.73989,
     longitude: -98.5795,
     zoom: 4
+    // style: 'mapbox://styles/mapbox/streets-v11'
   })
 
   //USE HISTORY
@@ -42,6 +43,7 @@ const Map = (props) => {
   //DESTRUCTURE PROPS
   const { posts, selectedPost } = props.postState
 
+  //METHODS
   const handleClick = (post) => {
     props.setSelectedPost(post)
     props.setReducerPost(post)
@@ -72,6 +74,7 @@ const Map = (props) => {
         {...viewport}
         onViewportChange={(nextViewport) => setViewport(nextViewport)}
         mapboxApiAccessToken={ACCESS_TOKEN}
+        mapStyle="mapbox://styles/mapbox/streets-v9"
       >
         {posts.length
           ? posts.map((post, idx) => (

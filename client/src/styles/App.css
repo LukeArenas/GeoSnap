@@ -3,12 +3,14 @@
 }
 
 header {
-  background-color: rgb(68, 131, 68);
+  background-color: #2b2d31;
+  color: white;
   height: 10vh;
 }
 
 .title {
-  margin-top: 0;
+  margin: 0;
+  height: 6vh;
 }
 
 .map-container {
@@ -51,6 +53,31 @@ header {
   margin: 0;
 }
 
+.navbar-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 4vh;
+  background-color: #3f4449;
+}
+
 .navbar {
   display: flex;
+  position: absolute;
+  right: 3vw;
+}
+
+.nav-btn {
+  background-color: white;
+  color: #2b2d31;
+  outline: none;
+  border: none;
+  margin: 0 1em;
+  height: 3vh;
+  width: 5em;
+  border-radius: 3px;
+}
+
+.nav-btn:hover {
+  background-color: rgb(243, 243, 243);
 }
