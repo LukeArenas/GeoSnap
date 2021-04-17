@@ -1,10 +1,24 @@
 .profile-page-picture {
   width: 15vw;
+  border-radius: 10%;
+  /* position: absolute;
+  left: 42.5vw; */
 }
 
 .profile-header-container {
   width: 100vw;
   background-color: #7a9e7e;
+  /* position: relative; */
+}
+
+.relative {
+  position: relative;
+}
+
+.edit-btn {
+  position: absolute;
+  top: 0;
+  right: 42vw;
 }
 
 .white {

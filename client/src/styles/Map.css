@@ -10,3 +10,9 @@
   width: 8vw;
   border-radius: 10%;
 }
+
+.map-style {
+  position: absolute;
+  z-index: 1;
+  background-color: transparent;
+}

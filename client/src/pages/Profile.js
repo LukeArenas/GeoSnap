@@ -74,18 +74,24 @@ const Profile = (props) => {
     <div className="detail-page">
       <div className="profile-header-container">
         <h3 className="white">@{props.authState.currentUser.username}</h3>
-        <img
-          src={profilePicture}
-          alt={username}
-          className="profile-page-picture"
-        />
-        {props.postState.isEditing ? (
-          <div>
-            <ProfilePicture />
-          </div>
-        ) : (
-          <button onClick={() => props.setEditing()}>Edit</button>
-        )}
+        <div className="relative">
+          <img
+            src={profilePicture}
+            alt={username}
+            className="profile-page-picture"
+          />
+          {props.postState.isEditing ? (
+            <div>
+              <ProfilePicture />
+            </div>
+          ) : (
+            <div>
+              <button onClick={() => props.setEditing()} className="edit-btn">
+                Edit
+              </button>
+            </div>
+          )}
+        </div>
       </div>
       {filteredPosts.length
         ? filteredPosts.map((post, idx) => (

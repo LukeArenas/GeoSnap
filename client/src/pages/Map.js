@@ -70,6 +70,7 @@ const Map = (props) => {
 
   return (
     <div className="map-container">
+      <button className="map-style">Satellite</button>
       <MapGL
         {...viewport}
         onViewportChange={(nextViewport) => setViewport(nextViewport)}

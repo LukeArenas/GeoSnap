@@ -60,10 +60,6 @@ const PostForm = (props) => {
     try {
       const res = await geocoder.geocode(address)
       console.log(res.results[0].location)
-      // props.setLatLong(
-      //   latitude: res.results[0].location.lat,
-      //   longitude: res.results[0].location.lng
-      // )
       props.setLatLong('latitude', res.results[0].location.lat)
       props.setLatLong('longitude', res.results[0].location.lng)
     } catch (error) {
@@ -72,7 +68,6 @@ const PostForm = (props) => {
   }
 
   const setNewFile = (e) => {
-    console.log(e.target.files[0])
     props.setFile(e.target.files[0])
   }
 
@@ -90,7 +85,7 @@ const PostForm = (props) => {
   }
 
   return (
-    <div>
+    <div className="detail-page">
       <h3>Pin a new memory:</h3>
       <form onSubmit={(e) => submitImage(e)}>
         <input type="file" onChange={(e) => setNewFile(e)} />
@@ -107,7 +102,7 @@ const PostForm = (props) => {
           value={address}
           onChange={(e) => handleAddress(e)}
         />
-        <button onClick={(e) => getCoordinates(e)}>Submit Address</button>
+        <button onClick={(e) => getCoordinates(e)}>Check Address</button>
         <input type="submit" value="Submit" />
         {/* <CropImage /> */}
         <PostPreview />
