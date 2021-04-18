@@ -37,7 +37,15 @@ const createPost = async (req, res) => {
       image: uploadParams.image,
       fileName: uploadParams.fileName
     })
-    res.send(newPost)
+    const postWithUser = await Post.findByPk(newPost.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['username', 'profilePicture']
+        }
+      ]
+    })
+    res.send(postWithUser)
   } catch (error) {
     throw error
   }

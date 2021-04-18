@@ -32,7 +32,7 @@ const mapActionsToProps = (dispatch) => {
 const PostForm = (props) => {
   const [address, setAddress] = useState('')
 
-  const { image, caption } = props.postState.newPost
+  const { caption, latitude, longitude } = props.postState.newPost
 
   //USE HISTORY
 
@@ -75,7 +75,7 @@ const PostForm = (props) => {
 
   const submitImage = (e) => {
     e.preventDefault()
-    if (props.authState.file) {
+    if (props.authState.file && latitude && longitude) {
       console.log('creating post')
       let formData = new FormData()
       formData.append('image', props.authState.file)
