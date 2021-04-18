@@ -110,13 +110,11 @@
   color: black;
 }
 
-/* .edit-field {
-  display: block;
-} */
-
 .edit-field input {
   display: block;
   margin: 0;
+  width: 20vw;
+  height: 3vh;
 }
 
 .done-btn {
@@ -156,6 +154,7 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  background-color: white;
 }
 
 .feed-card {
@@ -222,4 +221,8 @@
 .form-fields input {
   display: block;
   width: 30vw;
+}
+
+.preview-pic {
+  width: 45vw;
 }

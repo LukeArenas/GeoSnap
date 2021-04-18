@@ -15,7 +15,8 @@ import {
   SET_NEW_POST,
   SET_FILTERED_POSTS,
   SET_FILTER,
-  SET_MAP_STYLE
+  SET_MAP_STYLE,
+  SHOW_ADDRESS
 } from '../types'
 
 export const getAllPosts = () => async (dispatch) => {
@@ -96,4 +97,9 @@ export const setFilter = (filter) => ({
 export const toggleMapStyle = (style) => ({
   type: SET_MAP_STYLE,
   payload: style
+})
+
+export const showAddress = (bool) => ({
+  type: SHOW_ADDRESS,
+  payload: bool
 })

@@ -10,6 +10,7 @@ export const SET_NEW_POST = 'SET_NEW_POST'
 export const SET_FILTERED_POSTS = 'SET_FILTERED_POSTS'
 export const SET_FILTER = 'SET_FILTER'
 export const SET_MAP_STYLE = 'SET_MAP_STYLE'
+export const SHOW_ADDRESS = 'SHOW_ADDRESS'
 
 //COMMENTS
 

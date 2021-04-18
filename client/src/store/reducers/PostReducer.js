@@ -8,7 +8,8 @@ const {
   SET_NEW_POST,
   SET_FILTERED_POSTS,
   SET_FILTER,
-  SET_MAP_STYLE
+  SET_MAP_STYLE,
+  SHOW_ADDRESS
 } = require('../types')
 
 const initialState = {
@@ -23,7 +24,8 @@ const initialState = {
   },
   filteredPosts: [],
   filter: '',
-  mapStyle: 'mapbox://styles/mapbox/streets-v9'
+  mapStyle: 'mapbox://styles/mapbox/streets-v9',
+  showAddress: false
 }
 
 const PostReducer = (state = initialState, action) => {
@@ -63,6 +65,8 @@ const PostReducer = (state = initialState, action) => {
       return { ...state, filter: action.payload }
     case SET_MAP_STYLE:
       return { ...state, mapStyle: action.payload }
+    case SHOW_ADDRESS:
+      return { ...state, showAddress: action.payload }
     default:
       return { ...state }
   }

@@ -1,7 +1,12 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router'
 import { connect } from 'react-redux'
-import { createPost, setNewPost, setLatLong } from '../store/actions/PostAction'
+import {
+  createPost,
+  setNewPost,
+  setLatLong,
+  showAddress
+} from '../store/actions/PostAction'
 import PostPreview from '../components/PostPreview'
 import Map from './Map'
 import { setFile } from '../store/actions/AuthAction'
@@ -23,7 +28,8 @@ const mapActionsToProps = (dispatch) => {
     createPost: (body) => dispatch(createPost(body)),
     setNewPost: (name, value) => dispatch(setNewPost(name, value)),
     setLatLong: (dir, value) => dispatch(setLatLong(dir, value)),
-    setFile: (file) => dispatch(setFile(file))
+    setFile: (file) => dispatch(setFile(file)),
+    showAddress: (bool) => dispatch(showAddress(bool))
   }
 }
 
@@ -63,6 +69,12 @@ const PostForm = (props) => {
       console.log(res.results[0].location)
       props.setLatLong('latitude', res.results[0].location.lat)
       props.setLatLong('longitude', res.results[0].location.lng)
+      setAddress(res.results[0].formatted_address)
+      if (res.results[0].location.lat) {
+        props.showAddress(true)
+      } else {
+        console.log('oops something went wrong!')
+      }
     } catch (error) {
       throw error
     }
@@ -117,6 +129,14 @@ const PostForm = (props) => {
               <input type="submit" value="Submit" />
             </form>
           </div>
+          {props.postState.showAddress ? (
+            <div>
+              <h3>Address:</h3>
+              <div>{address}</div>
+            </div>
+          ) : (
+            <div></div>
+          )}
         </div>
       </div>
       {/* <CropImage /> */}
