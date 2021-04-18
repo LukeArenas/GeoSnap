@@ -29,7 +29,11 @@ const PostThumbnail = (props) => {
         <div>
           {filteredPosts.length
             ? filteredPosts.map((post, idx) => (
-                <div key={idx} onClick={() => handleClick(post)}>
+                <div
+                  key={idx}
+                  onClick={() => handleClick(post)}
+                  className="feed-card"
+                >
                   <img
                     src={post.User.profilePicture}
                     alt={post.User.username}
@@ -41,7 +45,8 @@ const PostThumbnail = (props) => {
                     alt={post.caption}
                     className="preview-pic"
                   />
-                  <h4 className="align-text-left">
+
+                  <h4 className="feed-caption">
                     @{post.User.username} {post.caption}
                   </h4>
                 </div>

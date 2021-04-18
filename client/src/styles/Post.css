@@ -64,7 +64,7 @@
 }
 
 .dropbtn {
-  background-color: #3498db;
+  background-color: #2b2d31;
   color: white;
   padding: 16px;
   font-size: 16px;
@@ -79,7 +79,7 @@
 
 .dropbtn:hover,
 .dropbtn:focus {
-  background-color: #2980b9;
+  background-color: #3f4449;
 }
 
 .dropdown-content {
@@ -106,6 +106,22 @@
   min-width: 3vw;
   display: block;
   border: none;
+  background-color: #b3efb2;
+  color: black;
+}
+
+/* .edit-field {
+  display: block;
+} */
+
+.edit-field input {
+  display: block;
+  margin: 0;
+}
+
+.done-btn {
+  display: flex;
+  justify-content: left;
 }
 
 .show {
@@ -135,12 +151,21 @@
 }
 
 .preview-container {
-  background-color: white;
   width: 60vw;
   min-height: 60vh;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+.feed-card {
+  margin: 2vh 0;
+  width: 60vw;
+  background-color: white;
+}
+
+.title-container {
+  width: 45vw;
 }
 
 .user-container {
@@ -149,8 +174,9 @@
   width: 45vw;
 }
 
-.preview-pic {
-  width: 45vw;
+.feed-caption {
+  margin-left: 7.5vw;
+  text-align: left;
 }
 
 .align-text-left {

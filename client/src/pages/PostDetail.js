@@ -103,9 +103,9 @@ const PostDetail = (props) => {
             </div>
           ) : null}
         </div>
-        <img src={image} alt={caption} className="post-picture" />
         {props.postState.isEditing ? (
-          <div>
+          <div className="edit-field">
+            <img src={image} alt={caption} className="post-picture" />
             <input
               type="text"
               placeholder="caption"
@@ -113,10 +113,13 @@ const PostDetail = (props) => {
               name="caption"
               onChange={(e) => handleChange(e)}
             />
-            <button onClick={(e) => handleUpdates(e)}>Done</button>
+            <div className="done-btn">
+              <button onClick={(e) => handleUpdates(e)}>Done</button>
+            </div>
           </div>
         ) : (
           <div className="align-text-left">
+            <img src={image} alt={caption} className="post-picture" />
             <h4>{caption}</h4>
           </div>
         )}
