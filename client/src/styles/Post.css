@@ -177,3 +177,23 @@
 .post-form-title {
   width: 60vw;
 }
+
+.form-fields {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 15vh;
+}
+
+.form-fields form {
+  position: absolute;
+  width: 30vw;
+  left: 15vw;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form-fields input {
+  display: block;
+  width: 30vw;
+}

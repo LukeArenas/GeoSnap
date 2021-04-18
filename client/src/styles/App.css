@@ -68,16 +68,17 @@ header {
 }
 
 .nav-btn {
-  background-color: white;
-  color: #2b2d31;
+  background-color: #3f4449;
+  color: #b3efb2;
   outline: none;
   border: none;
+  border-bottom: 2px solid #3f4449;
   margin: 0 1em;
   height: 3vh;
   width: 5em;
-  border-radius: 3px;
 }
 
 .nav-btn:hover {
-  background-color: rgb(243, 243, 243);
+  color: #9ed39d;
+  border-bottom: 2px solid #9ed39d;
 }
