@@ -14,7 +14,8 @@ import {
   SET_UPDATED,
   SET_NEW_POST,
   SET_FILTERED_POSTS,
-  SET_FILTER
+  SET_FILTER,
+  SET_MAP_STYLE
 } from '../types'
 
 export const getAllPosts = () => async (dispatch) => {
@@ -92,6 +93,7 @@ export const setFilter = (filter) => ({
   payload: filter
 })
 
-export const setImage = (data) => async (dispatch) => {
-  const newPost = await CreatePost(data)
-}
+export const toggleMapStyle = (style) => ({
+  type: SET_MAP_STYLE,
+  payload: style
+})

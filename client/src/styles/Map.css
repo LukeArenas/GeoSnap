@@ -11,8 +11,36 @@
   border-radius: 10%;
 }
 
-.map-style {
+.button-container {
+  position: relative;
+}
+
+.street-style {
   position: absolute;
+  left: 3vw;
+  top: 3vh;
   z-index: 1;
   background-color: transparent;
+  color: white;
+  outline: none;
+  margin: 0 1em;
+  height: 4vh;
+  width: 7em;
+  border-radius: 3px;
+  border: 3px solid white;
+}
+
+.satellite-style {
+  position: absolute;
+  left: 3vw;
+  top: 3vh;
+  z-index: 1;
+  background-color: transparent;
+  color: black;
+  outline: none;
+  margin: 0 1em;
+  height: 4vh;
+  width: 7em;
+  border-radius: 3px;
+  border: 3px solid black;
 }

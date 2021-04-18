@@ -5,7 +5,8 @@ import {
   getAllPosts,
   getPostById,
   setSelectedPost,
-  setPosts
+  setPosts,
+  toggleMapStyle
 } from '../store/actions/PostAction'
 import { useHistory } from 'react-router'
 import '../styles/App.css'
@@ -21,7 +22,8 @@ const mapActionsToProps = (dispatch) => {
     getAllPosts: () => dispatch(getAllPosts()),
     getPostById: (id) => dispatch(getPostById(id)),
     setReducerPost: (post) => dispatch(setSelectedPost(post)),
-    setPosts: (posts) => dispatch(setPosts(posts))
+    setPosts: (posts) => dispatch(setPosts(posts)),
+    setMapStyle: (style) => dispatch(toggleMapStyle(style))
   }
 }
 
@@ -34,14 +36,13 @@ const Map = (props) => {
     latitude: 39.73989,
     longitude: -98.5795,
     zoom: 4
-    // style: 'mapbox://styles/mapbox/streets-v11'
   })
 
   //USE HISTORY
   const history = useHistory()
 
   //DESTRUCTURE PROPS
-  const { posts, selectedPost } = props.postState
+  const { posts, mapStyle } = props.postState
 
   //METHODS
   const handleClick = (post) => {
@@ -62,6 +63,18 @@ const Map = (props) => {
     }
   }
 
+  const handleMouseOver = (e, post) => {
+    e.currentTarget.src = post.image
+  }
+
+  const changeMapStyle = () => {
+    if (mapStyle === 'mapbox://styles/mapbox/streets-v9') {
+      props.setMapStyle('mapbox://styles/mapbox/satellite-v9')
+    } else {
+      props.setMapStyle('mapbox://styles/mapbox/streets-v9')
+    }
+  }
+
   useEffect(() => {
     if (!posts.length) {
       props.getAllPosts()
@@ -70,12 +83,22 @@ const Map = (props) => {
 
   return (
     <div className="map-container">
-      <button className="map-style">Satellite</button>
+      <div className="button-container">
+        {mapStyle === 'mapbox://styles/mapbox/streets-v9' ? (
+          <button className="satellite-style" onClick={() => changeMapStyle()}>
+            Satellite
+          </button>
+        ) : (
+          <button className="street-style" onClick={() => changeMapStyle()}>
+            Street
+          </button>
+        )}
+      </div>
       <MapGL
         {...viewport}
         onViewportChange={(nextViewport) => setViewport(nextViewport)}
         mapboxApiAccessToken={ACCESS_TOKEN}
-        mapStyle="mapbox://styles/mapbox/streets-v9"
+        mapStyle={mapStyle}
       >
         {posts.length
           ? posts.map((post, idx) => (
@@ -89,7 +112,8 @@ const Map = (props) => {
                   <img
                     src={pin}
                     className="pin"
-                    onMouseOver={(e) => (e.currentTarget.src = post.image)}
+                    style={{ zIndex: 1 }}
+                    onMouseOver={(e) => handleMouseOver(e, post)}
                     onMouseOut={(e) => (e.currentTarget.src = pin)}
                   />
                 </Marker>
