@@ -127,8 +127,13 @@ const PostForm = (props) => {
                 value={address}
                 onChange={(e) => handleAddress(e)}
               />
-              <button onClick={(e) => getCoordinates(e)}>Check Address</button>
-              <input type="submit" value="Submit" />
+              {props.postState.showAddress ? (
+                <input type="submit" value="Submit" />
+              ) : (
+                <button onClick={(e) => getCoordinates(e)}>
+                  Check Address
+                </button>
+              )}
             </form>
           </div>
           {props.postState.showAddress ? (

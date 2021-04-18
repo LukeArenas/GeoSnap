@@ -236,6 +236,7 @@
 .form-fields input {
   display: block;
   width: 30vw;
+  margin-bottom: 1vh;
 }
 
 .preview-pic {
