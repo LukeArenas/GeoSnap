@@ -28,7 +28,7 @@
 .grid-container {
   width: 45vw;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .poster-container {
@@ -58,76 +58,51 @@
   margin-top: 2vh;
 }
 
-.dropdown {
+.dropdown-container {
   position: relative;
-  display: inline-block;
 }
 
-.dropbtn {
-  background-color: #2b2d31;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
+.dropdown-menu {
   position: absolute;
-  height: 5vh;
-  width: 3vw;
   right: 0;
-  top: 0;
-}
-
-.dropbtn:hover,
-.dropbtn:focus {
   background-color: #3f4449;
+  border-left: 2px solid #3f4449;
+  color: white;
+  outline: none;
+  width: 3vw;
 }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  top: 0;
-  right: 0;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
+.dropdown-menu:hover {
+  background-color: #616970;
+  border-left: 2px solid #616970;
 }
 
-.dropdown-option {
+.option {
+  display: block;
+  background-color: white;
   color: black;
-  display: block;
-  position: absolute;
-  right: 0;
-  top: 5vh;
-  display: block;
-}
-
-.dropdown-choice {
+  text-decoration: none;
+  text-align: right;
   min-width: 3vw;
-  display: block;
-  border: none;
-  background-color: #b3efb2;
-  color: black;
 }
 
-.edit-field input {
-  display: block;
-  margin: 0;
-  width: 20vw;
-  height: 3vh;
+.option:hover {
+  background-color: rgb(235, 235, 235);
 }
 
-.done-btn {
-  display: flex;
-  justify-content: left;
+.options-container {
+  position: absolute;
+  right: 1px;
+  border: 1px solid #3f4449;
+  border-radius: 3px;
 }
 
-.show {
-  position: relative;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
+.menu-icon {
+  width: 2vw;
+}
+
+#delete {
+  color: rgb(252, 143, 143);
 }
 
 .cropper {

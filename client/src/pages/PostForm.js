@@ -7,6 +7,7 @@ import {
   setLatLong,
   showAddress
 } from '../store/actions/PostAction'
+import { getMonth } from '../helperFunction'
 import PostPreview from '../components/PostPreview'
 import Map from './Map'
 import { setFile } from '../store/actions/AuthAction'
@@ -110,7 +111,7 @@ const PostForm = (props) => {
     <div className="detail-page">
       <div className="post-form">
         <div>
-          <h3 className="post-form-title">Pin a new memory:</h3>
+          <h3 className="post-form-title">Pin a new moment:</h3>
           <div className="form-fields">
             <form onSubmit={(e) => submitImage(e)}>
               <input type="file" onChange={(e) => setNewFile(e)} />
@@ -128,7 +129,7 @@ const PostForm = (props) => {
                 onChange={(e) => handleAddress(e)}
               />
               {props.postState.showAddress ? (
-                <input type="submit" value="Submit" />
+                <input type="submit" value="Submit Post" />
               ) : (
                 <button onClick={(e) => getCoordinates(e)}>
                   Check Address

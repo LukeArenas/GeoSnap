@@ -7,6 +7,9 @@ import {
   setUpdatedPost,
   updatePost
 } from '../store/actions/PostAction'
+import { getMonth } from '../helperFunction'
+import { Dropdown } from 'react-bootstrap'
+import menuIcon from '../assets/white-menu-icon.png'
 import Comment from '../components/Comment'
 import { useHistory } from 'react-router'
 import '../styles/Post.css'
@@ -75,31 +78,37 @@ const PostDetail = (props) => {
           ) : null}
           {props.authState.currentUser.username ===
           props.postState.selectedPost.User.username ? (
-            <div className="dropdown">
-              <button
-                onClick={(e) => (e.target.nextSibling.className = '.show')}
-                class="dropbtn"
-              >
-                ...
-              </button>
-              <div className="dropdown-content">
-                <div className="dropdown-option">
-                  <button
-                    onClick={() =>
-                      handleDelete(props.postState.selectedPost.id)
-                    }
-                    className="dropdown-choice"
-                  >
-                    Delete
-                  </button>
-                  <button
-                    onClick={() => handleEdit()}
-                    className="dropdown-choice"
-                  >
-                    Edit
-                  </button>
+            <div className="dropdown-container">
+              <Dropdown>
+                <Dropdown.Toggle
+                  variant="success"
+                  id="dropdown-basic"
+                  className="dropdown-menu"
+                >
+                  <img src={menuIcon} className="menu-icon" />
+                </Dropdown.Toggle>
+                <div className="dropdown-container">
+                  <Dropdown.Menu>
+                    <div className="options-container">
+                      <Dropdown.Item
+                        onClick={() => handleEdit()}
+                        className="option"
+                      >
+                        Edit
+                      </Dropdown.Item>
+                      <Dropdown.Item
+                        onClick={() =>
+                          handleDelete(props.postState.selectedPost.id)
+                        }
+                        className="option"
+                        id="delete"
+                      >
+                        Delete
+                      </Dropdown.Item>
+                    </div>
+                  </Dropdown.Menu>
                 </div>
-              </div>
+              </Dropdown>
             </div>
           ) : null}
         </div>
@@ -121,6 +130,12 @@ const PostDetail = (props) => {
           <div className="align-text-left">
             <img src={image} alt={caption} className="post-picture" />
             <h4>{caption}</h4>
+            <h4 className="align-text-left date">{`${getMonth(
+              props.postState.selectedPost
+            )}  ${props.postState.selectedPost.createdAt.slice(
+              8,
+              10
+            )}, ${props.postState.selectedPost.createdAt.slice(0, 4)}`}</h4>
           </div>
         )}
       </div>

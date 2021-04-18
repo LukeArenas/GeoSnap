@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { setSelectedPost } from '../store/actions/PostAction'
+import { getMonth } from '../helperFunction'
 
 const mapStateToProps = ({ postState }) => {
   return { postState }
@@ -46,9 +47,13 @@ const PostThumbnail = (props) => {
                     className="preview-pic"
                   />
 
-                  <h4 className="feed-caption">
-                    @{post.User.username} {post.caption}
-                  </h4>
+                  <h4 className="feed-caption">{post.caption}</h4>
+                  <h4 className="align-text-left date">{`${getMonth(
+                    post
+                  )}  ${post.createdAt.slice(8, 10)}, ${post.createdAt.slice(
+                    0,
+                    4
+                  )}`}</h4>
                 </div>
               ))
             : null}
