@@ -3,6 +3,7 @@ import { useHistory } from 'react-router'
 import { connect } from 'react-redux'
 import { createPost, setNewPost, setLatLong } from '../store/actions/PostAction'
 import PostPreview from '../components/PostPreview'
+import Map from './Map'
 import { setFile } from '../store/actions/AuthAction'
 const Geocodio = require('geocodio-library-node')
 
@@ -20,7 +21,7 @@ const mapStateToProps = ({ postState, authState }) => {
 const mapActionsToProps = (dispatch) => {
   return {
     createPost: (body) => dispatch(createPost(body)),
-    setNewPost: (e) => dispatch(setNewPost(e)),
+    setNewPost: (name, value) => dispatch(setNewPost(name, value)),
     setLatLong: (dir, value) => dispatch(setLatLong(dir, value)),
     setFile: (file) => dispatch(setFile(file))
   }
@@ -40,7 +41,7 @@ const PostForm = (props) => {
   //METHODS
 
   const handleChange = (e) => {
-    props.setNewPost(e)
+    props.setNewPost(e.target.name, e.target.value)
   }
 
   const handleSubmit = (e) => {
@@ -68,12 +69,14 @@ const PostForm = (props) => {
   }
 
   const setNewFile = (e) => {
+    console.log(e.target.files[0])
     props.setFile(e.target.files[0])
   }
 
   const submitImage = (e) => {
     e.preventDefault()
     if (props.authState.file) {
+      console.log('creating post')
       let formData = new FormData()
       formData.append('image', props.authState.file)
       formData.append('caption', props.postState.newPost.caption)
@@ -82,6 +85,11 @@ const PostForm = (props) => {
       formData.append('userId', props.authState.currentUser.id)
       props.createPost(formData)
     }
+    props.setFile(null)
+    props.setNewPost('caption', '')
+    props.setNewPost('latitude', null)
+    props.setNewPost('longitude', null)
+    history.push('/map')
   }
 
   return (
@@ -106,6 +114,8 @@ const PostForm = (props) => {
         <input type="submit" value="Submit" />
         {/* <CropImage /> */}
         <PostPreview />
+
+        <Map />
       </form>
     </div>
   )

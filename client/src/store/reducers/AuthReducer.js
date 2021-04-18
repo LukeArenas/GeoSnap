@@ -20,7 +20,7 @@ const initialState = {
   },
   isRegistered: false,
   isAuthenticated: false,
-  file: {}
+  file: null
 }
 
 const AuthReducer = (state = initialState, action) => {

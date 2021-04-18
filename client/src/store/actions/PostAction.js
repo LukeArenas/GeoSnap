@@ -72,9 +72,9 @@ export const updatePost = (body) => async (dispatch) => {
   dispatch({ type: SET_SELECTED_POST, payload: response })
 }
 
-export const setNewPost = (e) => ({
+export const setNewPost = (name, value) => ({
   type: SET_NEW_POST,
-  payload: { name: e.target.name, value: e.target.value }
+  payload: { name: name, value: value }
 })
 
 export const setLatLong = (dir, value) => ({
