@@ -10,6 +10,8 @@ import {
 import PostPreview from '../components/PostPreview'
 import Map from './Map'
 import { setFile } from '../store/actions/AuthAction'
+import checkMark from '../assets/green-check-mark.png'
+
 const Geocodio = require('geocodio-library-node')
 
 //SET UP GEOCODER
@@ -76,7 +78,7 @@ const PostForm = (props) => {
         console.log('oops something went wrong!')
       }
     } catch (error) {
-      throw error
+      alert('Oops! Something went wrong. Please check the address again.')
     }
   }
 
@@ -130,8 +132,9 @@ const PostForm = (props) => {
             </form>
           </div>
           {props.postState.showAddress ? (
-            <div>
-              <h3>Address:</h3>
+            <div className="address-check-container">
+              <img src={checkMark} alt="checkmark" className="checkmark" />
+              <h3 className="address">Address:</h3>
               <div>{address}</div>
             </div>
           ) : (

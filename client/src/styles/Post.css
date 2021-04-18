@@ -148,6 +148,21 @@
   flex-wrap: wrap;
 }
 
+.address-check-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.address {
+  padding: 0 2vw;
+}
+
+.checkmark {
+  width: 3vw;
+  height: 5vh;
+}
+
 .preview-container {
   width: 60vw;
   min-height: 60vh;
