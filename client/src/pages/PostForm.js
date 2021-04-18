@@ -94,29 +94,32 @@ const PostForm = (props) => {
 
   return (
     <div className="detail-page">
-      <h3>Pin a new memory:</h3>
-      <form onSubmit={(e) => submitImage(e)}>
-        <input type="file" onChange={(e) => setNewFile(e)} />
-        <input
-          type="text"
-          placeholder="caption"
-          value={caption}
-          name="caption"
-          onChange={(e) => handleChange(e)}
-        />
-        <input
-          type="text"
-          placeholder="address"
-          value={address}
-          onChange={(e) => handleAddress(e)}
-        />
-        <button onClick={(e) => getCoordinates(e)}>Check Address</button>
-        <input type="submit" value="Submit" />
-        {/* <CropImage /> */}
-        <PostPreview />
-
-        <Map />
-      </form>
+      <div className="post-form">
+        <div>
+          <h3 className="post-form-title">Pin a new memory:</h3>
+          <form onSubmit={(e) => submitImage(e)}>
+            <input type="file" onChange={(e) => setNewFile(e)} />
+            <input
+              type="text"
+              placeholder="caption"
+              value={caption}
+              name="caption"
+              onChange={(e) => handleChange(e)}
+            />
+            <input
+              type="text"
+              placeholder="address"
+              value={address}
+              onChange={(e) => handleAddress(e)}
+            />
+            <button onClick={(e) => getCoordinates(e)}>Check Address</button>
+            <input type="submit" value="Submit" />
+          </form>
+        </div>
+      </div>
+      {/* <CropImage /> */}
+      <PostPreview />
+      {/* <Map /> */}
     </div>
   )
 }

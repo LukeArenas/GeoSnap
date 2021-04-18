@@ -137,6 +137,7 @@
 .preview-container {
   background-color: white;
   width: 60vw;
+  min-height: 60vh;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -160,4 +161,19 @@
 
 .date {
   margin-bottom: 1vh;
+}
+
+.post-form {
+  background-color: white;
+  width: 60vw;
+  height: 30vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin: 2vh 0;
+}
+
+.post-form-title {
+  width: 60vw;
 }

@@ -20,7 +20,7 @@ const PostPreview = (props) => {
       <div className="preview-container">
         <h3 className="section-title">Preview</h3>
         <div>
-          {currentUser ? (
+          {currentUser && props.authState.file ? (
             <div className="user-container">
               <img
                 src={currentUser.profilePicture}
