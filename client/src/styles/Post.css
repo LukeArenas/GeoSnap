@@ -199,7 +199,7 @@
 .post-form {
   background-color: white;
   width: 60vw;
-  height: 30vh;
+  min-height: 30vh;
   display: flex;
   flex-wrap: wrap;
   align-items: center;

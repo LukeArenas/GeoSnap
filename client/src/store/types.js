@@ -16,6 +16,7 @@ export const SHOW_ADDRESS = 'SHOW_ADDRESS'
 
 export const SET_COMMENTS = 'SET_COMMENTS'
 export const DELETE_COMMENT = 'DELETE_COMMENT'
+export const SET_NEW_COMMENT = 'SET_NEW_COMMENT'
 
 //AUTH
 

@@ -1,7 +1,8 @@
-const { DELETE_COMMENT, SET_COMMENTS } = require('../types')
+const { DELETE_COMMENT, SET_COMMENTS, SET_NEW_COMMENT } = require('../types')
 
 const initialState = {
-  comments: []
+  comments: [],
+  newComment: {}
 }
 
 const CommentReducer = (state = initialState, action) => {
@@ -13,6 +14,14 @@ const CommentReducer = (state = initialState, action) => {
         return comment.id !== action.payload
       })
       return { ...state, comments: revisedComments }
+    case SET_NEW_COMMENT:
+      return {
+        ...state,
+        newComment: {
+          ...state.newComment,
+          [action.payload.name]: action.payload.value
+        }
+      }
     default:
       return { ...state }
   }

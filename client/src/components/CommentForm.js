@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
-import { createComment } from '../store/actions/CommentAction'
+import { createComment, setNewComment } from '../store/actions/CommentAction'
 
 const mapStateToProps = ({ commentState, authState, postState }) => {
   return { commentState, authState, postState }
@@ -8,31 +8,26 @@ const mapStateToProps = ({ commentState, authState, postState }) => {
 
 const mapActionsToProps = (dispatch) => {
   return {
-    createComment: (body) => dispatch(createComment(body))
+    createComment: (body) => dispatch(createComment(body)),
+    setNewComment: (name, value) => dispatch(setNewComment(name, value))
   }
 }
 
 //COMPONENT
 
 const CommentForm = (props) => {
-  const [newComment, setNewComment] = useState({
-    content: '',
-    userId: props.authState.currentUser.id,
-    postId: props.postState.selectedPost.id
-  })
-
   const handleChange = (e) => {
-    setNewComment({ ...newComment, content: e.target.value })
+    props.setNewComment(e.target.name, e.target.value)
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    props.createComment(newComment)
-    setNewComment({
-      content: '',
+    props.createComment({
+      ...props.commentState.newComment,
       userId: props.authState.currentUser.id,
-      postId: props.selectedPost.id
+      postId: props.postState.selectedPost.id
     })
+    props.setNewComment('content', '')
   }
 
   return (
@@ -41,7 +36,8 @@ const CommentForm = (props) => {
         <input
           type="text"
           placeholder="Leave a comment"
-          value={newComment.content}
+          name="content"
+          value={props.commentState.newComment.content}
           onChange={(e) => handleChange(e)}
           className="comment-input"
         />
