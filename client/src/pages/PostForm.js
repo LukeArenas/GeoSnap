@@ -7,9 +7,7 @@ import {
   setLatLong,
   showAddress
 } from '../store/actions/PostAction'
-import { getMonth } from '../helperFunction'
 import PostPreview from '../components/PostPreview'
-import Map from './Map'
 import { setFile } from '../store/actions/AuthAction'
 import checkMark from '../assets/green-check-mark.png'
 
@@ -148,9 +146,7 @@ const PostForm = (props) => {
           )}
         </div>
       </div>
-      {/* <CropImage /> */}
       <PostPreview />
-      {/* <Map /> */}
     </div>
   )
 }

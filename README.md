@@ -50,7 +50,7 @@ React and Node suit my front-end needs through their component hierarchy. The re
 
 ### ***Future Updates***
 
-- [ ] 
+- [ ] Cropping uploaded images
 - [ ] 
 - [ ] 
 - [ ] 
