@@ -65,8 +65,6 @@ const PostForm = (props) => {
       setAddress(res.results[0].formatted_address)
       if (res.results[0].location.lat) {
         props.showAddress(true)
-      } else {
-        console.log('oops something went wrong!')
       }
     } catch (error) {
       alert('Oops! Something went wrong. Please check the address again.')

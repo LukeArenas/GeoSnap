@@ -10,7 +10,7 @@
 
 ### ***Description***
 
-GeoSnap is a geo-tagging photo sharing app. It allows users to upload their photos to a specific address as well as see other user's posts. Additionally, users can comment on other photos they find intriguing. 
+GeoSnap is a geo-tagging photo sharing app. It allows users to upload their photos to a specific address as well as see other user's posts. Additionally, users can comment on other photos they find intriguing. Explore the world and share your moments along the way!
 
 ### **Check out my deployed project** [HERE](url)
 
@@ -24,8 +24,6 @@ GeoSnap is a geo-tagging photo sharing app. It allows users to upload their phot
 
 ### ***Technologies***
 
-<img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Flogonoid.com%2Fimages%2Fpostgresql-logo.png&f=1&nofb=1" alt="PostgresSQL logo" width="150"/><img src="https://i.cloudup.com/zfY6lL7eFa-3000x3000.png" alt="express logo" width="150"/><img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fyycjs.com%2Freal-world-react%2Fimg%2Freact-logo.png&f=1&nofb=1" alt="React logo" width="150"/><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.ict.social%2Fimages%2F5728%2Fnodejs_logo.png&f=1&nofb=1" alt="Node logo" width="150"/>
-
 * PostgreSQL
 * Express
 * React
@@ -33,16 +31,17 @@ GeoSnap is a geo-tagging photo sharing app. It allows users to upload their phot
 * Mapbox
 * Geocodio
 * Redux
+* AWS
 
 ***
 
 ### ***Back-end Decisions***
 
-I decided to use Postgres and Express for the back-end because I find they have a good balance between structure and flexibility. Geocodio will be used in the back-end to store coordinates in the db.
+I decided to use Postgres and Express for the back-end because I find they have a good balance between structure and flexibility. Geocodio is used in the back-end to store coordinates in the db.
 
 ### ***Front-end Decisions***
 
-React and Node suit my front-end needs through their component hierarchy. The redux functionality paired with React will help keep my project organized and scalable. The Mapbox API will be the front-end of my geolocation functionality.
+React and Node suit my front-end needs through their component hierarchy. The redux functionality paired with React will help keep my project organized and scalable. The Mapbox API is the front-end of my geolocation functionality. The initial plan was to have three pages - the map, the create post form, and the post details. As the project evolved, I realized I needed to find a way to handle multiple posts at one location. This led me to design a feed page, which allows the user to see all the posts at that location from newest to oldest. With the addition of AWS, and the ability to upload a new profile picture, the app also required a profile page that would not only allow the user to upload their new photo, but also see all their own posts in chronological order.
 
 ### ***Screenshots***
 
