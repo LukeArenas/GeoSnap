@@ -38,3 +38,9 @@
   width: 1.5vw;
   z-index: 1;
 }
+
+.handle {
+  margin: 0.5em 0;
+  width: 45vw;
+  font-size: x-large;
+}

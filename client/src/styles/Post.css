@@ -175,10 +175,6 @@
   width: 45vw;
 }
 
-.feed-caption {
-  text-align: left;
-}
-
 .align-text-left {
   text-align: left;
   width: 45vw;
@@ -244,4 +240,18 @@
   border-radius: 10px;
   font-family: 'Lexend Deca', sans-serif;
   font-size: medium;
+}
+
+.feed-caption {
+  text-align: left;
+  font-size: x-large;
+}
+
+.edit-field {
+  display: flex;
+  margin: 2vh 0;
+}
+
+.editing-caption {
+  width: 30vw;
 }

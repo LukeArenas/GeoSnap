@@ -114,17 +114,22 @@ const PostDetail = (props) => {
           ) : null}
         </div>
         {props.postState.isEditing ? (
-          <div className="edit-field">
+          <div>
             <img src={image} alt={caption} className="post-picture" />
-            <input
-              type="text"
-              placeholder="caption"
-              value={caption}
-              name="caption"
-              onChange={(e) => handleChange(e)}
-            />
-            <div className="done-btn">
-              <button onClick={(e) => handleUpdates(e)}>Done</button>
+            <div className="edit-field">
+              <input
+                type="text"
+                placeholder="caption"
+                value={caption}
+                name="caption"
+                onChange={(e) => handleChange(e)}
+                className="editing-caption"
+              />
+              <div className="done-btn">
+                <button onClick={(e) => handleUpdates(e)} className="form-btn">
+                  Done
+                </button>
+              </div>
             </div>
           </div>
         ) : (
