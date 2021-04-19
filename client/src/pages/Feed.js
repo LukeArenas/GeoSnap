@@ -20,6 +20,7 @@ const Feed = (props) => {
     if (!posts.length) {
       props.getAllPosts()
     }
+    // eslint-disable-next-line
   }, [])
 
   return (

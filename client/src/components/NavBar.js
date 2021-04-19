@@ -6,7 +6,6 @@ import {
   setAuthenticated,
   setRegistered
 } from '../store/actions/AuthAction'
-import Filter from './Filter'
 
 const mapStateToProps = ({ authState }) => {
   return { authState }

@@ -11,6 +11,7 @@ header {
 .title {
   margin: 0;
   height: 6vh;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 .map-container {
@@ -76,9 +77,23 @@ header {
   margin: 0 1em;
   height: 3vh;
   width: 5em;
+  font-family: 'Lexend Deca', sans-serif;
 }
 
 .nav-btn:hover {
   color: #9ed39d;
   border-bottom: 2px solid #9ed39d;
+}
+
+.form-btn {
+  background-color: white;
+  color: #3f4449;
+  border: 2px solid #3f4449;
+  border-radius: 10%;
+  height: 4vh;
+  width: 4vw;
+}
+
+.form-btn:hover {
+  background-color: rgb(243, 243, 243);
 }

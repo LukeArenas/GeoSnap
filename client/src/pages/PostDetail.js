@@ -60,6 +60,7 @@ const PostDetail = (props) => {
     if (!props.postState.selectedPost.User) {
       props.getPostById(props.postState.selectedPost.id)
     }
+    // eslint-disable-next-line
   }, [])
 
   return (
@@ -85,7 +86,7 @@ const PostDetail = (props) => {
                   id="dropdown-basic"
                   className="dropdown-menu"
                 >
-                  <img src={menuIcon} className="menu-icon" />
+                  <img src={menuIcon} alt="menu" className="menu-icon" />
                 </Dropdown.Toggle>
                 <div className="dropdown-container">
                   <Dropdown.Menu>

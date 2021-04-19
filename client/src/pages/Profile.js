@@ -42,6 +42,7 @@ const Profile = (props) => {
     if (!props.postState.posts.length) {
       props.getAllPosts()
     }
+    // eslint-disable-next-line
   }, [])
 
   return (

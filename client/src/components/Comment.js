@@ -37,6 +37,7 @@ const Comment = (props) => {
 
   useEffect(() => {
     props.getCommentsByPostId(props.postState.selectedPost.id)
+    // eslint-disable-next-line
   }, [props.postState.selectedPost.id])
 
   return (

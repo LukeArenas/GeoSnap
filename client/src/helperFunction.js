@@ -24,5 +24,7 @@ export const getMonth = (post) => {
       return 'November'
     case '12':
       return 'December'
+    default:
+      return ''
   }
 }

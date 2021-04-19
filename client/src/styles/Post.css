@@ -123,6 +123,7 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  margin-bottom: 10vh;
 }
 
 .address-check-container {
@@ -147,6 +148,7 @@
   justify-content: center;
   flex-wrap: wrap;
   background-color: white;
+  padding-bottom: 3vh;
 }
 
 .feed-card {
@@ -234,4 +236,15 @@
 
 .preview-pic {
   width: 45vw;
+}
+
+.flex {
+  display: flex;
+  width: 45vw;
+  justify-content: center;
+}
+
+.check-address {
+  width: 10em;
+  border-radius: 10px;
 }

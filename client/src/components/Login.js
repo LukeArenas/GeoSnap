@@ -19,7 +19,7 @@ const mapActionsToProps = (dispatch) => {
 const Login = (props) => {
   //DESTRUCTURING
   const { password, username } = props.authState.loginCreds
-  const { loginCreds, currentUser, isAuthenicated } = props.authState
+  const { loginCreds } = props.authState
 
   //USE HISTORY
   const history = useHistory()
@@ -63,7 +63,7 @@ const Login = (props) => {
           onChange={(e) => handleChange(e)}
         />
         <br></br>
-        <input className="page-buttons" type="submit" value="Submit" />
+        <input className="form-btn" type="submit" value="Submit" />
       </form>
     </div>
   )

@@ -79,6 +79,7 @@ const Map = (props) => {
     if (!posts.length) {
       props.getAllPosts()
     }
+    // eslint-disable-next-line
   }, [])
 
   return (
@@ -111,6 +112,7 @@ const Map = (props) => {
                 >
                   <img
                     src={pin}
+                    alt="pin"
                     className="pin"
                     style={{ zIndex: 1 }}
                     onMouseOver={(e) => handleMouseOver(e, post)}

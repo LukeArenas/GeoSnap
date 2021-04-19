@@ -66,10 +66,12 @@ const Register = (props) => {
           onChange={(e) => handleChange(e)}
         />
         <br></br>
-        <input className="page-buttons" type="submit" value="Submit" />
+        <input className="form-btn" type="submit" value="Submit" />
       </form>
       <p>Already have an account?</p>
-      <button onClick={() => changeToLogin()}>Login</button>
+      <button onClick={() => changeToLogin()} className="form-btn">
+        Login
+      </button>
     </div>
   )
 }

@@ -51,14 +51,6 @@ const PostForm = (props) => {
     props.setNewPost(e.target.name, e.target.value)
   }
 
-  const handleSubmit = (e) => {
-    props.createPost({
-      ...props.postState.newPost,
-      userId: props.authState.currentUser.id
-    })
-    history.push('/map')
-  }
-
   const handleAddress = (e) => {
     setAddress(e.target.value)
   }
@@ -102,6 +94,7 @@ const PostForm = (props) => {
     props.setNewPost('caption', '')
     props.setNewPost('latitude', null)
     props.setNewPost('longitude', null)
+    props.showAddress(false)
     history.push('/map')
   }
 
@@ -127,11 +120,23 @@ const PostForm = (props) => {
                 onChange={(e) => handleAddress(e)}
               />
               {props.postState.showAddress ? (
-                <input type="submit" value="Submit Post" />
+                <div className="flex">
+                  <button
+                    className="form-btn check-address"
+                    onClick={(e) => submitImage(e)}
+                  >
+                    Submit Post
+                  </button>
+                </div>
               ) : (
-                <button onClick={(e) => getCoordinates(e)}>
-                  Check Address
-                </button>
+                <div className="flex">
+                  <button
+                    onClick={(e) => getCoordinates(e)}
+                    className="form-btn check-address"
+                  >
+                    Check Address
+                  </button>
+                </div>
               )}
             </form>
           </div>

@@ -12,7 +12,7 @@ const mapActionsToProps = (dispatch) => {
 }
 
 const PostPreview = (props) => {
-  const { image, caption } = props.postState.newPost
+  const { caption } = props.postState.newPost
   const { currentUser } = props.authState
 
   return (

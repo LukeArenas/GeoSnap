@@ -27,7 +27,7 @@ const App = (props) => {
   const [selectedPost, setSelectedPost] = useState(null)
 
   //DESTRUCTURING
-  const { currentUser, isAuthenticated } = props.authState
+  const { isAuthenticated } = props.authState
 
   // METHODS
   const checkToken = () => {
