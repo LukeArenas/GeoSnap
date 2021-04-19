@@ -1,14 +1,18 @@
 .profile-page-picture {
   width: 15vw;
-  border-radius: 10%;
-  /* position: absolute;
-  left: 42.5vw; */
+  background-color: #7a9e7e;
 }
 
 .profile-header-container {
   width: 100vw;
+  height: 10vh;
   background-color: #7a9e7e;
-  /* position: relative; */
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
 }
 
 .relative {
@@ -17,10 +21,15 @@
 
 .edit-btn {
   position: absolute;
-  top: 0;
-  right: 42vw;
+  top: 1vh;
+  right: 1vh;
 }
 
 .white {
   color: white;
+}
+
+.edit-camera {
+  width: 1.5vw;
+  z-index: 1;
 }
