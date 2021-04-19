@@ -32,7 +32,6 @@ GeoSnap is a geo-tagging photo sharing app. It allows users to upload their phot
 * Geocodio
 * Redux
 * AWS
-* JWT Authentication
 
 ***
 
