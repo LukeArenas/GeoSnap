@@ -22,6 +22,7 @@ header {
   min-height: 90vh;
   display: flex;
   align-items: center;
+  font-family: 'Lexend Deca', sans-serif;
 }
 
 .credentials-container {
@@ -52,6 +53,7 @@ header {
 .greeting {
   width: 55vw;
   margin: 0;
+  font-size: xx-large;
 }
 
 .navbar-container {
@@ -78,11 +80,11 @@ header {
   height: 3vh;
   width: 5em;
   font-family: 'Lexend Deca', sans-serif;
+  font-size: larger;
 }
 
 .nav-btn:hover {
-  color: #9ed39d;
-  border-bottom: 2px solid #9ed39d;
+  border-bottom: 2px solid #b3efb2;
 }
 
 .form-btn {
@@ -92,6 +94,8 @@ header {
   border-radius: 10%;
   height: 4vh;
   width: 4vw;
+  font-family: 'Lexend Deca', sans-serif;
+  font-size: medium;
 }
 
 .form-btn:hover {

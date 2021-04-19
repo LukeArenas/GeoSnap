@@ -4,6 +4,8 @@
   justify-content: center;
   background-color: rgb(238, 237, 237);
   min-height: 90vh;
+  padding-bottom: 10vh;
+  font-family: 'Lexend Deca', sans-serif;
 }
 
 .post-card {
@@ -107,17 +109,6 @@
   color: rgb(252, 143, 143);
 }
 
-.cropper {
-  display: flex;
-  justify-content: center;
-}
-
-.crop-container {
-  position: relative;
-  min-height: 50vh;
-  min-width: 30vw;
-}
-
 .preview {
   background-color: rgb(238, 237, 237);
   display: flex;
@@ -194,6 +185,10 @@
   margin: 1vh 0 0 0;
 }
 
+.caption {
+  font-size: larger;
+}
+
 .date {
   margin-bottom: 1vh;
 }
@@ -247,4 +242,6 @@
 .check-address {
   width: 10em;
   border-radius: 10px;
+  font-family: 'Lexend Deca', sans-serif;
+  font-size: medium;
 }

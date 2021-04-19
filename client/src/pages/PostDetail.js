@@ -130,7 +130,7 @@ const PostDetail = (props) => {
         ) : (
           <div className="align-text-left">
             <img src={image} alt={caption} className="post-picture" />
-            <h4>{caption}</h4>
+            <h4 className="caption">{caption}</h4>
             <h4 className="align-text-left date">{`${getMonth(
               props.postState.selectedPost
             )}  ${props.postState.selectedPost.createdAt.slice(

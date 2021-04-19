@@ -39,6 +39,7 @@
 .handle {
   margin: 0.5em 0;
   width: 45vw;
+  font-size: x-large;
 }
 
 .delete-container {

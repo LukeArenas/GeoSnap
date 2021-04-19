@@ -41,7 +41,7 @@ const CommentForm = (props) => {
           onChange={(e) => handleChange(e)}
           className="comment-input"
         />
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Submit" className="form-btn" />
       </form>
     </div>
   )
