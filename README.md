@@ -32,18 +32,21 @@ GeoSnap is a geo-tagging photo sharing app. It allows users to upload their phot
 * Geocodio
 * Redux
 * AWS
+* JWT Authentication
 
 ***
 
 ### ***Back-end Decisions***
 
-I decided to use Postgres and Express for the back-end because I find they have a good balance between structure and flexibility. Geocodio is used in the back-end to store coordinates in the db.
+I decided to use Postgres and Express for the back-end because I find they have a good balance between structure and flexibility. Geocodio is used in the back-end to store coordinates in the db. Additionally, I was able to implement AWS to store and retrieve user's uploaded images. To minimize queries and requests to the db, I decided to send back User model information along with the posts and comments when they were being called. 
 
 ### ***Front-end Decisions***
 
 React and Node suit my front-end needs through their component hierarchy. The redux functionality paired with React will help keep my project organized and scalable. The Mapbox API is the front-end of my geolocation functionality. The initial plan was to have three pages - the map, the create post form, and the post details. As the project evolved, I realized I needed to find a way to handle multiple posts at one location. This led me to design a feed page, which allows the user to see all the posts at that location from newest to oldest. With the addition of AWS, and the ability to upload a new profile picture, the app also required a profile page that would not only allow the user to upload their new photo, but also see all their own posts in chronological order.
 
 ### ***Screenshots***
+
+![GeoCode](client/src/assets/GeoSnap.JPG)
 
 ***
 
