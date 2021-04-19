@@ -10,7 +10,7 @@
 
 ### ***Description***
 
-GeoSnap is a geo-tagging photo sharing app. It allows users to upload their photos to a specific address as well as see other user's posts. Additionally, users can view and comment on other photos they find intriguing. 
+GeoSnap is a geo-tagging photo sharing app. It allows users to upload their photos to a specific address as well as see other user's posts. Additionally, users can comment on other photos they find intriguing. 
 
 ### **Check out my deployed project** [HERE](url)
 
@@ -25,6 +25,14 @@ GeoSnap is a geo-tagging photo sharing app. It allows users to upload their phot
 ### ***Technologies***
 
 <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Flogonoid.com%2Fimages%2Fpostgresql-logo.png&f=1&nofb=1" alt="PostgresSQL logo" width="150"/><img src="https://i.cloudup.com/zfY6lL7eFa-3000x3000.png" alt="express logo" width="150"/><img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fyycjs.com%2Freal-world-react%2Fimg%2Freact-logo.png&f=1&nofb=1" alt="React logo" width="150"/><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.ict.social%2Fimages%2F5728%2Fnodejs_logo.png&f=1&nofb=1" alt="Node logo" width="150"/>
+
+* PostgreSQL
+* Express
+* React
+* Node
+* Mapbox
+* Geocodio
+* Redux
 
 ***
 
@@ -50,7 +58,8 @@ React and Node suit my front-end needs through their component hierarchy. The re
 ***
 
 ### ***Credits***
-* [Mapbox](https://visgl.github.io/react-map-gl/)
-* [geocodio](https://dash.geocod.io/)
-* [npm](https://www.npmjs.com/package/uuidv4)
-* [Medium](https://medium.com/@650egor/react-30-day-challenge-day-2-image-upload-preview-2d534f8eaaa) (Upload Image Preview)
+* [Mapbox](https://visgl.github.io/react-map-gl/) (Front End Mapping)
+* [geocodio](https://dash.geocod.io/) (Back End Geocoding)
+* [npm](https://www.npmjs.com/package/uuidv4) (Postgres UUID)
+* [Medium](https://medium.com/@650egor/react-30-day-challenge-day-2-image-upload-preview-2d534f8eaaa) (Uploaded Image Preview)
+* [Stack Overflow](https://stackoverflow.com/) (General Code Debugging)

@@ -7,6 +7,9 @@
   width: 100vw;
   height: 10vh;
   background-color: #7a9e7e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .flex-container {
