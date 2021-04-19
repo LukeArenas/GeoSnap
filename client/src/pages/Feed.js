@@ -24,7 +24,7 @@ const Feed = (props) => {
   }, [])
 
   return (
-    <div>
+    <div className="detail-page">
       <h3 className="feed-title">Feed</h3>
       {postMessage.length ? (
         <div>

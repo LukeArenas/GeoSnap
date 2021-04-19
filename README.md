@@ -51,9 +51,9 @@ React and Node suit my front-end needs through their component hierarchy. The re
 ### ***Future Updates***
 
 - [ ] Cropping uploaded images
-- [ ] 
-- [ ] 
-- [ ] 
+- [ ] Hashtags
+- [ ] Private or Public Pictures
+- [ ] Likes
 
 ***
 
@@ -61,5 +61,9 @@ React and Node suit my front-end needs through their component hierarchy. The re
 * [Mapbox](https://visgl.github.io/react-map-gl/) (Front End Mapping)
 * [geocodio](https://dash.geocod.io/) (Back End Geocoding)
 * [npm](https://www.npmjs.com/package/uuidv4) (Postgres UUID)
+* [Bootstrap](https://getbootstrap.com/docs/4.0/components/dropdowns/) (Dropdown Menu)
+* [Google Fonts](https://fonts.google.com/) (Fonts)
 * [Medium](https://medium.com/@650egor/react-30-day-challenge-day-2-image-upload-preview-2d534f8eaaa) (Uploaded Image Preview)
 * [Stack Overflow](https://stackoverflow.com/) (General Code Debugging)
+* [W3 Schools](https://www.w3schools.com/) (General Code Debugging/Reference)
+* [MDN Web Docs](https://developer.mozilla.org/en-US/) (General Code Debugging/Reference)

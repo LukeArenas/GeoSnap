@@ -32,6 +32,7 @@ const ProfilePicture = (props) => {
       props.updateProfilePicture(props.authState.currentUser.id, formData)
     }
     props.setEditing()
+    props.setFile(null)
   }
 
   return (

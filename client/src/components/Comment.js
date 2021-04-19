@@ -41,18 +41,17 @@ const Comment = (props) => {
   }, [props.postState.selectedPost.id])
 
   return (
-    <div className="comment-section">
+    <div className="comment-section-inner">
       <div className="comment-content-container">
         <div className="comment-form">
-          {comments.length ? (
-            <div>
-              <img
-                src={props.authState.currentUser.profilePicture}
-                alt={'current user'}
-                className="profile-picture"
-              />
-            </div>
-          ) : null}
+          <div>
+            <img
+              src={props.authState.currentUser.profilePicture}
+              alt={'current user'}
+              className="profile-picture"
+            />
+          </div>
+
           <CommentForm selectedPost={props.selectedPost} />
         </div>
         {comments.length

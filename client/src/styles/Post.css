@@ -15,6 +15,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  box-shadow: 5px 5px 10px grey;
 }
 
 .post-picture {
@@ -58,6 +59,16 @@
   width: 60vw;
   margin-bottom: 2vh;
   margin-top: 2vh;
+  box-shadow: 5px 5px 10px grey;
+}
+
+.comment-section-inner {
+  background-color: white;
+  width: 60vw;
+  margin-bottom: 2vh;
+  margin-top: 2vh;
+  display: flex;
+  justify-content: center;
 }
 
 .dropdown-container {
@@ -140,6 +151,7 @@
   flex-wrap: wrap;
   background-color: white;
   padding-bottom: 3vh;
+  box-shadow: 5px 5px 10px grey;
 }
 
 .feed-card {
@@ -165,6 +177,7 @@
   background-color: #7a9e7e;
   color: white;
   margin: 0;
+  width: 100vw;
   height: 10vh;
   display: flex;
   align-items: center;
@@ -198,6 +211,7 @@
   align-items: center;
   justify-content: center;
   margin: 2vh 0;
+  box-shadow: 5px 5px 10px grey;
 }
 
 .post-form-title {
@@ -242,7 +256,7 @@
   font-size: medium;
 }
 
-.feed-caption {
+.caption {
   text-align: left;
   font-size: x-large;
 }
