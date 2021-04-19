@@ -26,7 +26,7 @@ const PostThumbnail = (props) => {
 
   return (
     <div className="preview">
-      <div className="preview-container">
+      <div>
         <div>
           {filteredPosts.length
             ? filteredPosts.map((post, idx) => (
@@ -35,25 +35,29 @@ const PostThumbnail = (props) => {
                   onClick={() => handleClick(post)}
                   className="feed-card"
                 >
-                  <img
-                    src={post.User.profilePicture}
-                    alt={post.User.username}
-                    className="profile-picture"
-                  />
-                  <h4>@{post.User.username}</h4>
-                  <img
-                    src={post.image}
-                    alt={post.caption}
-                    className="preview-pic"
-                  />
+                  <div className="inner-content">
+                    <div className="poster-container">
+                      <img
+                        src={post.User.profilePicture}
+                        alt={post.User.username}
+                        className="profile-picture"
+                      />
+                      <h4 className="handle">@{post.User.username}</h4>
+                    </div>
+                    <img
+                      src={post.image}
+                      alt={post.caption}
+                      className="preview-pic"
+                    />
 
-                  <h4 className="feed-caption">{post.caption}</h4>
-                  <h4 className="align-text-left date">{`${getMonth(
-                    post
-                  )}  ${post.createdAt.slice(8, 10)}, ${post.createdAt.slice(
-                    0,
-                    4
-                  )}`}</h4>
+                    <h4 className="feed-caption">{post.caption}</h4>
+                    <h4 className="align-text-left date">{`${getMonth(
+                      post
+                    )}  ${post.createdAt.slice(8, 10)}, ${post.createdAt.slice(
+                      0,
+                      4
+                    )}`}</h4>
+                  </div>
                 </div>
               ))
             : null}

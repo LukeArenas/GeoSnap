@@ -24,7 +24,7 @@ const Feed = (props) => {
 
   return (
     <div>
-      <h3>Feed</h3>
+      <h3 className="feed-title">Feed</h3>
       {postMessage.length ? (
         <div>
           <PostThumbnail />

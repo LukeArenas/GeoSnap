@@ -70,6 +70,7 @@
   color: white;
   outline: none;
   width: 3vw;
+  border-radius: 0 0 0 15%;
 }
 
 .dropdown-menu:hover {
@@ -82,8 +83,9 @@
   background-color: white;
   color: black;
   text-decoration: none;
-  text-align: right;
+  text-align: center;
   min-width: 3vw;
+  padding-top: 0.3em;
 }
 
 .option:hover {
@@ -151,6 +153,9 @@
   margin: 2vh 0;
   width: 60vw;
   background-color: white;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .title-container {
@@ -163,8 +168,21 @@
   width: 45vw;
 }
 
+.feed-title {
+  background-color: #7a9e7e;
+  color: white;
+  margin: 0;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inner-content {
+  width: 45vw;
+}
+
 .feed-caption {
-  margin-left: 7.5vw;
   text-align: left;
 }
 
