@@ -69,7 +69,7 @@ const Map = (props) => {
 
   const changeMapStyle = () => {
     if (mapStyle === 'mapbox://styles/mapbox/satellite-v9') {
-      props.setMapStyle('mapbox://styles/mapbox/satellite-v9')
+      props.setMapStyle('mapbox://styles/mapbox/dark-v10')
     } else {
       props.setMapStyle('mapbox://styles/mapbox/satellite-v9')
     }
