@@ -22,7 +22,7 @@ header {
 }
 
 .homepage {
-  min-height: 90vh;
+  height: 90vh;
   display: flex;
   align-items: center;
   font-family: 'Lexend Deca', sans-serif;
@@ -30,7 +30,7 @@ header {
 
 .credentials-container {
   display: flex;
-  min-height: 90vh;
+  height: 90vh;
   width: 45vw;
   justify-content: center;
   align-items: center;
@@ -45,7 +45,7 @@ header {
 }
 
 .homepage-gif {
-  min-height: 90vh;
+  height: 90vh;
   width: 55vw;
   display: flex;
   flex-wrap: wrap;
@@ -117,5 +117,28 @@ header {
 
   .form-btn {
     width: 20vw;
+  }
+
+  .homepage {
+    width: 100vw;
+    flex-wrap: wrap;
+  }
+
+  .homepage-gif {
+    width: 100vw;
+    height: 70vh;
+  }
+
+  .homepage-image {
+    width: 100vw;
+  }
+
+  .credentials-container {
+    width: 100vw;
+    height: 70vh;
+  }
+
+  .credentials-form {
+    width: 80vw;
   }
 }

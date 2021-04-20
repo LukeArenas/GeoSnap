@@ -48,3 +48,15 @@
   font-family: 'Lexend Deca', sans-serif;
   font-size: large;
 }
+
+@media only screen and (max-width: 600px) {
+  .satellite-style {
+    font-size: medium;
+    width: 5em;
+  }
+
+  .street-style {
+    font-size: medium;
+    width: 5em;
+  }
+}

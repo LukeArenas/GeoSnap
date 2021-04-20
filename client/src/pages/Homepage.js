@@ -26,6 +26,7 @@ const Homepage = (props) => {
         <img
           src="https://i.pinimg.com/originals/d7/ae/01/d7ae0170d3d5ffcbaa7f02fdda387a3b.gif"
           alt="spinning globe"
+          className="homepage-image"
         />
       </div>
       <div className="credentials-container">

@@ -96,7 +96,7 @@ const PostForm = (props) => {
   return (
     <div className="detail-page">
       <div className="post-form">
-        <div>
+        <div className="flexbox">
           <h3 className="post-form-title">Pin a new moment:</h3>
           <div className="form-fields">
             <form onSubmit={(e) => submitImage(e)}>

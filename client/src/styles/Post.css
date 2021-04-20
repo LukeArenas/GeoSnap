@@ -231,9 +231,9 @@
 .form-fields form {
   position: absolute;
   width: 30vw;
-  left: 15vw;
   display: flex;
   flex-wrap: wrap;
+  left: 15vw;
 }
 
 .form-fields input {
@@ -322,6 +322,62 @@
   }
 
   .preview-pic {
+    width: 67.5vw;
+  }
+
+  .post-form {
+    width: 90vw;
+  }
+
+  .preview-container {
+    width: 90vw;
+  }
+
+  .post-form-title {
+    width: 67.5vw;
+  }
+
+  .form-fields {
+    width: 67.5vw;
+  }
+
+  .form-fields form {
+    width: 67.5vw;
+    left: 0;
+  }
+
+  .form-fields input {
+    width: 67.5vw;
+  }
+
+  .check-address {
+    width: 30vw;
+    height: 3.5em;
+    font-size: small;
+    margin-left: 18.75vw;
+  }
+
+  .checkmark {
+    width: 10vw;
+  }
+
+  .address {
+    color: white;
+    width: 0;
+  }
+
+  .address-check-container {
+    width: 67.5vw;
+  }
+
+  .flexbox {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 60vw;
+  }
+
+  .user-container {
     width: 67.5vw;
   }
 }
