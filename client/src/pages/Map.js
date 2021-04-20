@@ -99,7 +99,7 @@ const Map = (props) => {
         {...viewport}
         onViewportChange={(nextViewport) => setViewport(nextViewport)}
         mapboxApiAccessToken={ACCESS_TOKEN}
-        mapStyle="mapbox://styles/mapbox/satellite-v9"
+        mapStyle={props.postState.mapStyle}
       >
         {posts.length
           ? posts.map((post, idx) => (

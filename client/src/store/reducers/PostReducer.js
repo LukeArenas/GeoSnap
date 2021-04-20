@@ -24,7 +24,7 @@ const initialState = {
   },
   filteredPosts: [],
   filter: '',
-  mapStyle: 'mapbox://styles/mapbox/light-v10',
+  mapStyle: 'mapbox://styles/mapbox/satellite-v9',
   showAddress: false
 }
 
