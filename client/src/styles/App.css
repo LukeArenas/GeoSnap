@@ -107,7 +107,10 @@ header {
 
 @media only screen and (max-width: 600px) {
   .navbar {
-    right: 2vw;
+    position: static;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
   }
 
   .nav-btn {
