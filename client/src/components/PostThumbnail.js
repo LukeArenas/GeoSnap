@@ -48,7 +48,7 @@ const PostThumbnail = (props) => {
                     <img
                       src={post.image}
                       alt={post.caption}
-                      className="preview-pic"
+                      className="post-picture"
                     />
 
                     <h4 className="caption">{post.caption}</h4>

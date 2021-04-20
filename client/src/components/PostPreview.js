@@ -39,7 +39,7 @@ const PostPreview = (props) => {
               : ''
           }
           alt={caption}
-          className="preview-pic"
+          className="post-picture"
         />
 
         <h4 className="align-text-left">{caption}</h4>
