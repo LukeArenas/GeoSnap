@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import MapGL, { Marker } from 'react-map-gl'
+import ReactMapGL from 'react-map-gl'
 import {
   getAllPosts,
   getPostById,
@@ -96,7 +97,7 @@ const Map = (props) => {
           </button>
         )}
       </div>
-      <MapGL
+      <ReactMapGL
         {...viewport}
         onViewportChange={(nextViewport) => setViewport(nextViewport)}
         mapboxApiAccessToken={ACCESS_TOKEN}
@@ -123,7 +124,7 @@ const Map = (props) => {
               </div>
             ))
           : null}
-      </MapGL>
+      </ReactMapGL>
     </div>
   )
 }
