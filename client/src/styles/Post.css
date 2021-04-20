@@ -269,3 +269,36 @@
 .editing-caption {
   width: 30vw;
 }
+
+@media only screen and (max-width: 600px) {
+  .post-card {
+    width: 90vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .grid-container {
+    width: 90vw;
+  }
+
+  .poster-container {
+    width: 90vw;
+  }
+
+  .post-picture {
+    width: 67.5vw;
+  }
+
+  .align-text-left {
+    width: 67.5vw;
+  }
+
+  .caption {
+    font-size: medium;
+  }
+
+  .date {
+    font-size: small;
+  }
+}
