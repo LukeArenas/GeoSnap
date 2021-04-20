@@ -86,14 +86,20 @@ const Profile = (props) => {
                 <h4>@{post.User.username}</h4>
               </div>
             </div>
-            <img src={post.image} alt={post.caption} className="preview-pic" />
-            <h4 className="align-text-left">{post.caption}</h4>
-            <h4 className="align-text-left date">{`${getMonth(
-              post
-            )}  ${post.createdAt.slice(8, 10)}, ${post.createdAt.slice(
-              0,
-              4
-            )}`}</h4>
+            <div className="align-text-left">
+              <img
+                src={post.image}
+                alt={post.caption}
+                className="post-picture"
+              />
+              <h4 className="align-text-left">{post.caption}</h4>
+              <h4 className="align-text-left date">{`${getMonth(
+                post
+              )}  ${post.createdAt.slice(8, 10)}, ${post.createdAt.slice(
+                0,
+                4
+              )}`}</h4>
+            </div>
           </div>
         ))
       ) : (
