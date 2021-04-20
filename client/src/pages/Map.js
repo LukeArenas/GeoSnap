@@ -68,10 +68,10 @@ const Map = (props) => {
   }
 
   const changeMapStyle = () => {
-    if (mapStyle === 'mapbox://styles/mapbox/light-v10') {
+    if (mapStyle === 'mapbox://styles/mapbox/satellite-v9') {
       props.setMapStyle('mapbox://styles/mapbox/satellite-v9')
     } else {
-      props.setMapStyle('mapbox://styles/mapbox/light-v10')
+      props.setMapStyle('mapbox://styles/mapbox/satellite-v9')
     }
   }
 
@@ -85,7 +85,7 @@ const Map = (props) => {
   return (
     <div className="map-container">
       <div className="button-container">
-        {mapStyle === 'mapbox://styles/mapbox/light-v10' ? (
+        {mapStyle === 'mapbox://styles/mapbox/satellite-v9' ? (
           <button className="satellite-style" onClick={() => changeMapStyle()}>
             Satellite
           </button>
