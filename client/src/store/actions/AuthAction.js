@@ -16,7 +16,6 @@ import {
 export const login = (body) => async (dispatch) => {
   const response = await Login(body)
   localStorage.setItem('token', response.token)
-  console.log(response)
   if (response.token) {
     dispatch({ type: SET_CURRENT_USER, payload: response.user })
     dispatch({ type: SET_AUTHENTICATED, payload: true })
@@ -26,7 +25,6 @@ export const login = (body) => async (dispatch) => {
 
 export const register = (body) => async (dispatch) => {
   const newUser = await Register(body)
-  console.log(`User created with id ${newUser.id}`)
 }
 
 export const updateProfilePicture = (id, data) => async (dispatch) => {

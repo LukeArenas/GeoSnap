@@ -37,7 +37,6 @@ const Login = (props) => {
     }
     props.setCreds('password', '')
     props.setCreds('username', '')
-    console.log(response)
     if (response.token) {
       history.push('/map')
     }

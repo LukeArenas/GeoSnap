@@ -20,10 +20,8 @@ const createUser = async (req, res) => {
 }
 
 const updateUser = async (req, res) => {
-  console.log(req)
   try {
     const uploadParams = await upload(req.file)
-    console.log(uploadParams)
     const updatedUser = await User.update(
       { profilePicture: uploadParams.image, fileName: uploadParams.fileName },
       {

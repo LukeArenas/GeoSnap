@@ -12,7 +12,7 @@
 
 GeoSnap is a geo-tagging photo sharing app. It allows users to upload their photos to a specific address as well as see other user's posts. Additionally, users can comment on other photos they find intriguing. Explore the world and share your moments along the way!
 
-### **Check out my deployed project** [HERE](url)
+### **Check out my deployed project** [HERE](https://powerful-caverns-31078.herokuapp.com/)
 
 ***
 

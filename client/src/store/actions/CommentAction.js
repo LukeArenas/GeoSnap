@@ -17,7 +17,7 @@ export const getCommentsByPost = (postId) => async (dispatch) => {
 export const createComment = (body) => async (dispatch) => {
   try {
     const newComments = await CreateComment(body)
-    console.log(newComments)
+
     dispatch({ type: SET_COMMENTS, payload: newComments })
   } catch (error) {
     throw error

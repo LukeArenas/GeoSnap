@@ -59,7 +59,6 @@ const PostForm = (props) => {
     e.preventDefault()
     try {
       const res = await geocoder.geocode(address)
-      console.log(res.results[0].location)
       props.setLatLong('latitude', res.results[0].location.lat)
       props.setLatLong('longitude', res.results[0].location.lng)
       setAddress(res.results[0].formatted_address)
@@ -72,14 +71,12 @@ const PostForm = (props) => {
   }
 
   const setNewFile = (e) => {
-    console.log(e.target.files[0])
     props.setFile(e.target.files[0])
   }
 
   const submitImage = (e) => {
     e.preventDefault()
     if (props.authState.file && latitude && longitude) {
-      console.log('creating post')
       let formData = new FormData()
       formData.append('image', props.authState.file)
       formData.append('caption', props.postState.newPost.caption)

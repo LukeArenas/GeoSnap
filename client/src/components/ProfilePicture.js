@@ -19,7 +19,6 @@ const mapActionsToProps = (dispatch) => {
 const ProfilePicture = (props) => {
   //METHODS
   const setNewFile = (e) => {
-    console.log(e.target.files[0])
     props.setFile(e.target.files[0])
   }
 
@@ -28,7 +27,6 @@ const ProfilePicture = (props) => {
     if (props.authState.file) {
       let formData = new FormData()
       formData.append('profilePicture', props.authState.file)
-      console.log(formData.get('profilePicture'))
       props.updateProfilePicture(props.authState.currentUser.id, formData)
     }
     props.setEditing()
