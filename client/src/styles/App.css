@@ -115,6 +115,7 @@ header {
 
   .nav-btn {
     width: 24vw;
+    min-width: auto;
     margin: 0;
   }
 
