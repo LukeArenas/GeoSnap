@@ -24,7 +24,7 @@ const initialState = {
   },
   filteredPosts: [],
   filter: '',
-  mapStyle: 'mapbox://styles/mapbox/streets-v9',
+  mapStyle: 'mapbox://styles/mapbox/streets-v11',
   showAddress: false
 }
 
