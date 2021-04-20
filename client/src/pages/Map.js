@@ -70,7 +70,7 @@ const Map = (props) => {
 
   const changeMapStyle = () => {
     if (mapStyle === 'mapbox://styles/mapbox/satellite-v9') {
-      props.setMapStyle('mapbox://styles/mapbox/streets-v11')
+      props.setMapStyle('mapbox://styles/mapbox/streets-v9')
     } else {
       props.setMapStyle('mapbox://styles/mapbox/satellite-v9')
     }
@@ -100,7 +100,7 @@ const Map = (props) => {
         {...viewport}
         onViewportChange={(nextViewport) => setViewport(nextViewport)}
         mapboxApiAccessToken={ACCESS_TOKEN}
-        mapStyle={props.postState.mapStyle}
+        mapStyle="mapbox://styles/mapbox/streets-v9"
       >
         {posts.length
           ? posts.map((post, idx) => (
