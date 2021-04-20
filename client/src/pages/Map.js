@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
-import MapGL, { Marker } from 'react-map-gl'
+import { Marker } from 'react-map-gl'
 import ReactMapGL from 'react-map-gl'
 import {
   getAllPosts,
@@ -101,7 +101,7 @@ const Map = (props) => {
         {...viewport}
         onViewportChange={(nextViewport) => setViewport(nextViewport)}
         mapboxApiAccessToken={ACCESS_TOKEN}
-        mapStyle="mapbox://styles/mapbox/streets-v9"
+        mapStyle={props.postState.mapStyle}
       >
         {posts.length
           ? posts.map((post, idx) => (
