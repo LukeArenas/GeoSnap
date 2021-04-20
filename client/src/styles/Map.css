@@ -52,11 +52,13 @@
 @media only screen and (max-width: 600px) {
   .satellite-style {
     font-size: medium;
-    width: 5em;
+    width: 25vw;
+    min-width: auto;
   }
 
   .street-style {
     font-size: medium;
-    width: 5em;
+    width: 25vw;
+    min-width: auto;
   }
 }
