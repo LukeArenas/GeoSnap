@@ -71,6 +71,10 @@
   width: 45vw;
 }
 
+.comment-handle {
+  width: 45vw;
+}
+
 @media only screen and (max-width: 600px) {
   .handle {
     font-size: 10px;
@@ -87,5 +91,21 @@
 
   .comment-input {
     width: 50vw;
+  }
+
+  .inner-container {
+    width: 67.5vw;
+  }
+
+  .text {
+    width: 45vw;
+  }
+
+  .content {
+    width: 67.5vw;
+  }
+
+  .comment-handle {
+    margin: 1vh 0;
   }
 }

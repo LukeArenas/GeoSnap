@@ -272,6 +272,10 @@
   width: 30vw;
 }
 
+.feed-handle {
+  font-size: x-large;
+}
+
 @media only screen and (max-width: 600px) {
   .post-card {
     width: 90vw;
@@ -386,5 +390,17 @@
 
   .inner-content {
     width: 67.5vw;
+  }
+
+  .feed-handle {
+    font-size: medium;
+  }
+
+  .dropdown-menu {
+    width: 6vw;
+  }
+
+  .menu-icon {
+    width: 3vw;
   }
 }

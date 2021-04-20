@@ -65,7 +65,9 @@ const Comment = (props) => {
                       className="profile-picture"
                     />
                     <div className="content-container">
-                      <h4 className="handle">@{comment.User.username}</h4>
+                      <h4 className="comment-handle">
+                        @{comment.User.username}
+                      </h4>
                       <p className="text">{comment.content}</p>
                     </div>
                   </div>
