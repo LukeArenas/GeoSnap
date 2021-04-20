@@ -31,18 +31,19 @@ const PostPreview = (props) => {
             </div>
           ) : null}
         </div>
+        <div className="align-text-left">
+          <img
+            src={
+              props.authState.file
+                ? URL.createObjectURL(props.authState.file)
+                : ''
+            }
+            alt={caption}
+            className="post-picture"
+          />
 
-        <img
-          src={
-            props.authState.file
-              ? URL.createObjectURL(props.authState.file)
-              : ''
-          }
-          alt={caption}
-          className="post-picture"
-        />
-
-        <h4 className="align-text-left">{caption}</h4>
+          <h4 className="align-text-left">{caption}</h4>
+        </div>
       </div>
     </div>
   )
