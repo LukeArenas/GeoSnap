@@ -131,6 +131,7 @@ header {
 
   .homepage-image {
     width: 100vw;
+    height: auto;
   }
 
   .credentials-container {

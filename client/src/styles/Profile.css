@@ -1,5 +1,6 @@
 .profile-page-picture {
   width: 15vw;
+  height: auto;
   background-color: #7a9e7e;
 }
 
@@ -48,6 +49,7 @@
 @media only screen and (max-width: 600px) {
   .profile-page-picture {
     width: 50vw;
+    height: auto;
   }
 
   .edit-camera {

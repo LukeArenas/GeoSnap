@@ -20,6 +20,7 @@
 
 .post-picture {
   width: 45vw;
+  height: auto;
 }
 
 .section-title {
@@ -243,6 +244,7 @@
 
 .preview-pic {
   width: 45vw;
+  height: auto;
 }
 
 .flex {
@@ -294,6 +296,7 @@
 
   .post-picture {
     width: 67.5vw;
+    height: auto;
   }
 
   .align-text-left {
@@ -326,6 +329,7 @@
 
   .preview-pic {
     width: 67.5vw;
+    height: auto;
   }
 
   .post-form {
