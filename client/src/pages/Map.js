@@ -12,6 +12,7 @@ import { useHistory } from 'react-router'
 import '../styles/App.css'
 import '../styles/Map.css'
 import pin from '../assets/pin-icon.png'
+import 'mapbox-gl/dist/mapbox-gl.css'
 
 const mapStateToProps = ({ postState, authState }) => {
   return { postState, authState }
@@ -69,7 +70,7 @@ const Map = (props) => {
 
   const changeMapStyle = () => {
     if (mapStyle === 'mapbox://styles/mapbox/satellite-v9') {
-      props.setMapStyle('mapbox://styles/mapbox/dark-v10')
+      props.setMapStyle('mapbox://styles/mapbox/streets-v11')
     } else {
       props.setMapStyle('mapbox://styles/mapbox/satellite-v9')
     }
