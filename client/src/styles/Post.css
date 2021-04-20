@@ -128,7 +128,6 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: 10vh;
 }
 
 .address-check-container {
@@ -378,6 +377,14 @@
   }
 
   .user-container {
+    width: 67.5vw;
+  }
+
+  .feed-title {
+    height: 8vh;
+  }
+
+  .inner-content {
     width: 67.5vw;
   }
 }

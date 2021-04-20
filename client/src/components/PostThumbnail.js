@@ -43,7 +43,7 @@ const PostThumbnail = (props) => {
                         alt={post.User.username}
                         className="profile-picture"
                       />
-                      <h4 className="handle">@{post.User.username}</h4>
+                      <h4 className="feed-handle">@{post.User.username}</h4>
                     </div>
                     <img
                       src={post.image}
