@@ -44,3 +44,21 @@
   width: 45vw;
   font-size: x-large;
 }
+
+@media only screen and (max-width: 600px) {
+  .profile-page-picture {
+    width: 50vw;
+  }
+
+  .edit-camera {
+    width: 6vw;
+  }
+
+  .profile-header-container {
+    height: 8vh;
+  }
+
+  .white {
+    font-size: x-large;
+  }
+}

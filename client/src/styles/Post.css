@@ -60,6 +60,9 @@
   margin-bottom: 2vh;
   margin-top: 2vh;
   box-shadow: 5px 5px 10px grey;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .comment-section-inner {
@@ -279,11 +282,11 @@
   }
 
   .grid-container {
-    width: 90vw;
+    width: 67.5vw;
   }
 
   .poster-container {
-    width: 90vw;
+    width: 78.78vw;
   }
 
   .post-picture {
@@ -300,5 +303,25 @@
 
   .date {
     font-size: small;
+  }
+
+  .comment-section {
+    width: 90vw;
+  }
+
+  .comment-section-inner {
+    width: 90vw;
+  }
+
+  .section-title {
+    width: 67.5vw;
+  }
+
+  .feed-card {
+    width: 90vw;
+  }
+
+  .preview-pic {
+    width: 67.5vw;
   }
 }
