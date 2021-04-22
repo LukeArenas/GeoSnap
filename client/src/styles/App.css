@@ -96,7 +96,7 @@ header {
   border: 2px solid #3f4449;
   border-radius: 10%;
   height: 4vh;
-  width: 4vw;
+  width: auto;
   font-family: 'Lexend Deca', sans-serif;
   font-size: medium;
 }
@@ -121,7 +121,9 @@ header {
   }
 
   .form-btn {
-    width: 20vw;
+    min-width: auto;
+    /* font-size: 5vw; */
+    text-size-adjust: inherit;
   }
 
   .homepage {
